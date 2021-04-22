@@ -1,0 +1,75 @@
+@import "../../../base/base-style.scss";
+
+.container {
+    border: solid 1px $white-dark;
+    background: $hover-dark;
+}
+
+.link {
+    transition: 0.25s ease;
+    cursor: pointer;
+    color: $white-dark;
+    text-decoration: none !important;
+    right: 0;
+
+    &:hover {
+        color: $white-normal;
+    }
+}
+
+.weekday {
+    color: $white-normal;
+}
+
+.condition {
+    color: $white-normal;
+}
+
+.monthday {
+    color: $white-normal;
+}
+
+.temperature {
+    color: $white-bright;
+}
+
+.feelslike {
+    color: $white-dark;
+}
+
+.warm {
+    color: $orange-normal;
+}
+
+.cold {
+    color: $cyan-normal;
+}
+
+.icon {
+    filter: $filter-shadow-medium;
+    width: calc(2rem + 5vw);
+    max-width: 80px;
+}
+
+.extra {
+    color: $white-normal;
+    border: solid 1px $white-dark;
+    cursor: pointer;
+
+    &:hover {
+        color: $white-bright;
+        border: solid 1px $white-normal;
+    }
+}
+
+.extraicon {
+    filter: $filter-shadow-medium;
+    margin-right: 5px;
+}
+
+.summary {
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    height: auto;
+    color: $white-normal;
+}

@@ -1,0 +1,32 @@
+@import '../../../base/base-style.scss';
+
+
+.linkContainer {
+    max-width: 200px;
+    min-width: 150px;
+    height: 100px;
+    border: solid $white-dark 1px;
+    background: $hover-dark;
+    opacity: 0.75;
+
+    &:hover {
+        border: solid 1px $white-normal;
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+
+.link {
+    text-decoration: none !important;
+}
+
+.title {
+    color: $white-bright;
+}
+
+.logo {
+    font-size: 35px;
+    color: #018def;
+    font-weight: 900;
+    font-family: "Arial";
+}

@@ -1,0 +1,22 @@
+@import '../../../../library/base/base-style.scss';
+
+.container {
+    border: solid 1px $white-dark
+}
+
+.alertContainer {
+    cursor: pointer;
+
+    &:hover {
+        background: $hover-normal;
+    }
+
+    &.active {
+        background: $hover-bright;
+    }
+}
+
+.error {
+    color: $white-bright;
+    text-align: center;
+}

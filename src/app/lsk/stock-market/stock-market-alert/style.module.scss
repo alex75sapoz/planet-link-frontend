@@ -1,0 +1,96 @@
+@import '../../../../library/base/base-style.scss';
+
+.buttonsContainer {
+    border: solid 1px $white-dark;
+    border-bottom: dashed 1px $white-dark;
+}
+
+.alertsContainer {
+    border: solid 1px $white-dark;
+    border-top: none;
+}
+
+.inProgress {
+    cursor: pointer;
+    color: $white-dark;
+    border: solid 1px $white-dark;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:hover {
+        color: $white-bright;
+        border: solid 1px $white-bright;
+    }
+
+    &.active {
+        color: $white-bright;
+        border: solid 1px $white-bright;
+        background: $page-dark;
+    }
+}
+
+.successful {
+    cursor: pointer;
+    color: $green-dark;
+    border: solid 1px $green-dark;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:hover {
+        color: $green-bright;
+        border: solid 1px $green-bright;
+    }
+
+    &.active {
+        color: $green-bright;
+        border: solid 1px $green-bright;
+        background: $page-dark;
+    }
+}
+
+.unsuccessful {
+    cursor: pointer;
+    color: $red-dark;
+    border: solid 1px $red-dark;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:hover {
+        color: $red-bright;
+        border: solid 1px $red-bright;
+    }
+
+    &.active {
+        color: $red-bright;
+        border: solid 1px $red-bright;
+        background: $page-dark;
+    }
+}
+
+.title {
+    color: $white-normal;
+}
+
+.arrow {
+    color: $white-normal;
+    font-size: 2.2rem;
+    cursor: pointer;
+
+    &:hover {
+        color: $white-bright;
+    }
+}
+
+.plus {
+    color: $green-dark;
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    &:hover {
+        color: $green-bright;
+    }
+}
+
+.error {
+    color: $white-bright;
+}

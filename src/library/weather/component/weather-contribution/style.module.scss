@@ -1,0 +1,26 @@
+@import '../../../base/base-style.scss';
+
+.container {
+    max-width: 250px;
+    border: solid $white-dark 1px;
+    background: $hover-dark;
+    opacity: 0.75;
+
+    &:hover {
+        border: solid 1px $white-normal;
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+
+.link {
+    text-decoration: none !important;
+}
+
+.title {
+    color: $white-bright;
+}
+
+.logo {
+    max-width: 100px;
+}

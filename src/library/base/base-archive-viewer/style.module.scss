@@ -1,0 +1,56 @@
+@import '../../base/base-style.scss';
+
+.section {
+    color: $white-bright;
+    border-top: solid 1px $white-bright;
+    border-bottom: solid 1px $white-bright;
+}
+
+.title {
+    color: $white-bright;
+}
+
+.description {
+    color: $white-normal;
+}
+
+.info {
+    color: $white-dark;
+}
+
+.download {
+    cursor: pointer;
+    border: solid 1px $green-dark;
+    color: $green-dark;
+    max-width: 200px;
+
+    &:hover {
+        color: $white-bright;
+        background: $green-normal;
+        border: solid 1px $green-normal
+    }
+}
+
+.fileContainer {
+    min-width: max-content;
+    max-width: max-content;
+}
+
+.file {
+    display: block;
+    color: $white-normal;
+    opacity: 0.75;
+    text-decoration: none !important;
+
+    &:hover {
+        color: $white-bright;
+        opacity: 1;
+    }
+
+    & > img {
+        display: block;
+        width: 100px;
+        height: 100px;
+        filter: $filter-shadow-medium;
+    }
+}
