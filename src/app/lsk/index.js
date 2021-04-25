@@ -12,14 +12,12 @@ export default function LSK() {
     return (
         <BrowserRouter>
             <Suspense fallback={<Loader />}>
-                <div className='ps-3 pe-3'>
-                    <Routes>
-                        <Route key={1} path='/*' element={<Home />} />
-                        <Route key={2} path='user/*' element={<User />} />
-                        <Route key={3} path='weather/*' element={<Weather />} />
-                        <Route key={4} path='stock-market/*' element={<StockMarket />} />
-                    </Routes>
-                </div>
+                <Routes>
+                    <Route key={1} path='/*' element={<Home />} />
+                    <Route key={2} path='user/*' element={<User />} />
+                    <Route key={3} path='weather/*' element={<Weather />} />
+                    <Route key={4} path='stock-market/*' element={<StockMarket />} />
+                </Routes>
             </Suspense>
         </BrowserRouter>
     )
