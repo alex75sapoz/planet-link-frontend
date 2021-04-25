@@ -103,16 +103,16 @@ export default class WeatherController extends ApiController {
 
 export class WeatherAsset extends ApiController {
     /**@param {string} conditionKey @returns {string} */
-    static condition = (conditionKey) => this.asset(`/weather/condition/${conditionKey?.toLowerCase()}.svg`)
+    static condition = (conditionKey) => this.storage.library(`/weather/condition/${conditionKey?.toLowerCase()}.svg`)
 
     static extra = {
-        humidity: this.asset('/weather/extra/humidity.png'),
-        windDirection: this.asset('/weather/extra/wind-direction.png'),
-        cloudiness: this.asset('/weather/extra/cloudiness.png'),
-        rain: this.asset('/weather/extra/rain.png'),
-        snow: this.asset('/weather/extra/snow.png'),
-        windSpeed: this.asset('/weather/extra/wind-speed.png'),
-        pressure: this.asset('/weather/extra/pressure.png'),
-        openWeatherLogo: this.asset('/weather/extra/open-weather-logo.png')
+        humidity: this.storage.library('/weather/extra/humidity.png'),
+        windDirection: this.storage.library('/weather/extra/wind-direction.png'),
+        cloudiness: this.storage.library('/weather/extra/cloudiness.png'),
+        rain: this.storage.library('/weather/extra/rain.png'),
+        snow: this.storage.library('/weather/extra/snow.png'),
+        windSpeed: this.storage.library('/weather/extra/wind-speed.png'),
+        pressure: this.storage.library('/weather/extra/pressure.png'),
+        openWeatherLogo: this.storage.library('/weather/extra/open-weather-logo.png')
     }
 }

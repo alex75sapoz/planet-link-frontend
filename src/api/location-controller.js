@@ -55,75 +55,67 @@ export default class LocationController extends ApiController {
 export class LocationAsset extends ApiController {
     static city = {
         archive: {
-            csv: this.asset('/location/city/archive/cities-csv.zip'),
-            json: this.asset('/location/city/archive/cities-json.zip'),
-            sql: this.asset('/location/city/archive/cities-sql.zip'),
-            xlsx: this.asset('/location/city/archive/cities-xlsx.zip')
+            csv: this.storage.library('/location/city/archive/cities-csv.zip'),
+            json: this.storage.library('/location/city/archive/cities-json.zip'),
+            xlsx: this.storage.library('/location/city/archive/cities-xlsx.zip')
         }
     }
 
     static country = {
         /**@param {string} countryTwoLetterCode @returns {string} */
-        flag: (countryTwoLetterCode) => this.asset(`/location/country/flag/${countryTwoLetterCode?.toLowerCase()}.png`),
+        flag: (countryTwoLetterCode) => this.storage.library(`/location/country/flag/${countryTwoLetterCode?.toLowerCase()}.png`),
         archive: {
-            csv: this.asset('/location/country/archive/countries-csv.zip'),
-            json: this.asset('/location/country/archive/countries-json.zip'),
-            sql: this.asset('/location/country/archive/countries-sql.zip'),
-            xlsx: this.asset('/location/country/archive/countries-xlsx.zip')
+            csv: this.storage.library('/location/country/archive/countries-csv.zip'),
+            json: this.storage.library('/location/country/archive/countries-json.zip'),
+            xlsx: this.storage.library('/location/country/archive/countries-xlsx.zip')
         }
     }
 
     static state = {
         archive: {
-            csv: this.asset('/location/state/archive/states-csv.zip'),
-            json: this.asset('/location/state/archive/states-json.zip'),
-            sql: this.asset('/location/state/archive/states-sql.zip'),
-            xlsx: this.asset('/location/state/archive/states-xlsx.zip')
+            csv: this.storage.library('/location/state/archive/states-csv.zip'),
+            json: this.storage.library('/location/state/archive/states-json.zip'),
+            xlsx: this.storage.library('/location/state/archive/states-xlsx.zip')
         }
     }
 
     static continent = {
         archive: {
-            csv: this.asset('/location/continent/archive/continents-csv.zip'),
-            json: this.asset('/location/continent/archive/continents-json.zip'),
-            sql: this.asset('/location/continent/archive/continents-sql.zip'),
-            xlsx: this.asset('/location/continent/archive/continents-xlsx.zip')
+            csv: this.storage.library('/location/continent/archive/continents-csv.zip'),
+            json: this.storage.library('/location/continent/archive/continents-json.zip'),
+            xlsx: this.storage.library('/location/continent/archive/continents-xlsx.zip')
         }
     }
 
     static subContinent = {
         archive: {
-            csv: this.asset('/location/sub-continent/archive/sub-continents-csv.zip'),
-            json: this.asset('/location/sub-continent/archive/sub-continents-json.zip'),
-            sql: this.asset('/location/sub-continent/archive/sub-continents-sql.zip'),
-            xlsx: this.asset('/location/sub-continent/archive/sub-continents-xlsx.zip')
+            csv: this.storage.library('/location/sub-continent/archive/sub-continents-csv.zip'),
+            json: this.storage.library('/location/sub-continent/archive/sub-continents-json.zip'),
+            xlsx: this.storage.library('/location/sub-continent/archive/sub-continents-xlsx.zip')
         }
     }
 
     static areaCode = {
         archive: {
-            csv: this.asset('/global/area-code/archive/area-codes-csv.zip'),
-            json: this.asset('/global/area-code/archive/area-codes-json.zip'),
-            sql: this.asset('/global/area-code/archive/area-codes-sql.zip'),
-            xlsx: this.asset('/global/area-code/archive/area-codes-xlsx.zip')
+            csv: this.storage.library('/location/area-code/archive/area-codes-csv.zip'),
+            json: this.storage.library('/location/area-code/archive/area-codes-json.zip'),
+            xlsx: this.storage.library('/location/area-code/archive/area-codes-xlsx.zip')
         }
     }
 
     static currency = {
         archive: {
-            csv: this.asset('/global/currency/archive/currencies-csv.zip'),
-            json: this.asset('/global/currency/archive/currencies-json.zip'),
-            sql: this.asset('/global/currency/archive/currencies-sql.zip'),
-            xlsx: this.asset('/global/currency/archive/currencies-xlsx.zip')
+            csv: this.storage.library('/location/currency/archive/currencies-csv.zip'),
+            json: this.storage.library('/location/currency/archive/currencies-json.zip'),
+            xlsx: this.storage.library('/location/currency/archive/currencies-xlsx.zip')
         }
     }
 
     static language = {
         archive: {
-            csv: this.asset('/global/language/archive/languages-csv.zip'),
-            json: this.asset('/global/language/archive/languages-json.zip'),
-            sql: this.asset('/global/language/archive/languages-sql.zip'),
-            xlsx: this.asset('/global/language/archive/languages-xlsx.zip')
+            csv: this.storage.library('/location/language/archive/languages-csv.zip'),
+            json: this.storage.library('/location/language/archive/languages-json.zip'),
+            xlsx: this.storage.library('/location/language/archive/languages-xlsx.zip')
         }
     }
 }

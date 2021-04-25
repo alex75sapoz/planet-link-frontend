@@ -21,11 +21,6 @@ export const cityArchiveGroup = {
             path: LocationAsset.city.archive.json,
             name: 'Cities.json',
             icon: Asset.file.json
-        },
-        {
-            path: LocationAsset.city.archive.sql,
-            name: 'Cities.sql',
-            icon: Asset.file.sql
         }
     ]
 }
@@ -50,11 +45,6 @@ export const countryArchiveGroup = {
             path: LocationAsset.country.archive.json,
             name: 'Countries.json',
             icon: Asset.file.json
-        },
-        {
-            path: LocationAsset.country.archive.sql,
-            name: 'Countries.sql',
-            icon: Asset.file.sql
         }
     ]
 }
@@ -79,11 +69,6 @@ export const stateArchiveGroup = {
             path: LocationAsset.state.archive.json,
             name: 'States.json',
             icon: Asset.file.json
-        },
-        {
-            path: LocationAsset.state.archive.sql,
-            name: 'States.sql',
-            icon: Asset.file.sql
         }
     ]
 }
@@ -108,11 +93,6 @@ export const continentArchiveGroup = {
             path: LocationAsset.continent.archive.json,
             name: 'Continents.json',
             icon: Asset.file.json
-        },
-        {
-            path: LocationAsset.continent.archive.sql,
-            name: 'Continents.sql',
-            icon: Asset.file.sql
         }
     ]
 }
@@ -137,11 +117,6 @@ export const subContinentArchiveGroup = {
             path: LocationAsset.subContinent.archive.json,
             name: 'SubContinents.json',
             icon: Asset.file.json
-        },
-        {
-            path: LocationAsset.subContinent.archive.sql,
-            name: 'SubContinents.sql',
-            icon: Asset.file.sql
         }
     ]
 }
@@ -166,11 +141,6 @@ export const areaCodeArchiveGroup = {
             path: LocationAsset.areaCode.archive.json,
             name: 'AreaCodes.json',
             icon: Asset.file.json
-        },
-        {
-            path: LocationAsset.areaCode.archive.sql,
-            name: 'AreaCodes.sql',
-            icon: Asset.file.sql
         }
     ]
 }
@@ -195,11 +165,6 @@ export const languageArchiveGroup = {
             path: LocationAsset.language.archive.json,
             name: 'Languages.json',
             icon: Asset.file.json
-        },
-        {
-            path: LocationAsset.language.archive.sql,
-            name: 'Languages.sql',
-            icon: Asset.file.sql
         }
     ]
 }
@@ -224,11 +189,6 @@ export const currencyArchiveGroup = {
             path: LocationAsset.currency.archive.json,
             name: 'Currencies.json',
             icon: Asset.file.json
-        },
-        {
-            path: LocationAsset.currency.archive.sql,
-            name: 'Currencies.sql',
-            icon: Asset.file.sql
         }
     ]
 }

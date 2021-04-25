@@ -1,7 +1,7 @@
 import { apiHeader, userSession } from './api-configuration';
 
-const server = process.env.REACT_APP_API_SERVER;
-const assetServer = process.env.REACT_APP_ASSET_SERVER;
+const backendServer = process.env.REACT_APP_BACKEND_SERVER;
+const storageServer = process.env.REACT_APP_STORAGE_SERVER;
 
 export default class ApiController {
     /**Request
@@ -30,7 +30,7 @@ export default class ApiController {
 
         var queryString = Object.keys(parameters).map((key, index) => (index === 0 ? `?${key}` : key) + '=' + encodeURIComponent(parameters[key])).join('&');
 
-        var url = server + path + queryString;
+        var url = backendServer + path + queryString;
 
         var response = undefined;
         var json = undefined;
@@ -60,12 +60,18 @@ export default class ApiController {
         }
     }
 
-    /**
-     * @param {string} path
-     * @returns {string}
-    */
-    static asset(path) {
-        return `${assetServer}${path}`;
+    static storage = {
+        /**
+         * @param {string} path
+         * @returns {string}
+        */
+        asset: (path) => `${storageServer}/asset${path}`,
+
+        /**
+         * @param {string} path
+         * @returns {string}
+        */
+        library: (path) => `${storageServer}/library${path}`
     }
 }
 

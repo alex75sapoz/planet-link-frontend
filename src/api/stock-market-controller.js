@@ -214,6 +214,6 @@ export default class StockMarketController extends ApiController {
 
 export class StockMarketAsset extends ApiController {
     static extra = {
-        stockTwitsLogo: this.asset('/stock-market/extra/stocktwits-logo.png')
+        stockTwitsLogo: this.storage.library('/stock-market/extra/stocktwits-logo.png')
     }
 }
