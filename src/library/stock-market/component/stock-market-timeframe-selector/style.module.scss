@@ -47,9 +47,9 @@
 
 @media (max-width: 450px) {
     .plus {
-        display: none;
+        display: none !important;
     }
     .minus {
-        display: none;
+        display: none !important;
     }
 }

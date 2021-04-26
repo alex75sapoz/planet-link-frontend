@@ -1,6 +1,6 @@
 import { apiHeader, userSession } from './api-configuration';
 
-const backendServer = process.env.REACT_APP_BACKEND_SERVER;
+const apiServer = process.env.REACT_APP_API_SERVER;
 const storageServer = process.env.REACT_APP_STORAGE_SERVER;
 
 export default class ApiController {
@@ -30,7 +30,7 @@ export default class ApiController {
 
         var queryString = Object.keys(parameters).map((key, index) => (index === 0 ? `?${key}` : key) + '=' + encodeURIComponent(parameters[key])).join('&');
 
-        var url = backendServer + path + queryString;
+        var url = apiServer + path + queryString;
 
         var response = undefined;
         var json = undefined;
