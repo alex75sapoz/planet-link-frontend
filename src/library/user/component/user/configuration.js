@@ -9,7 +9,7 @@ export const cache = {
     */
     userSessionCookieOptions: (expiresOn) => ({
         path: '/',
-        expires: expiresOn?.toDate(),
+        expires: expiresOn?.add(1, 'month').toDate(),
         domain: window.location.host.replace(`${window.location.host.split('.')[0]}.`, ''),
         secure: process.env.NODE_ENV !== 'development',
         sameSite: 'strict'
