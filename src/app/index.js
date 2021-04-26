@@ -7,7 +7,9 @@ export default function App() {
     const LSK = lazy(() => import('./lsk'));
 
     const protocol = window.location.protocol;
-    const domain = window.location.host.replace(`${window.location.host.split('.')[0]}.`, '');
+    const domain = window.location.host.match(/\./g).length === 1
+        ? window.location.host
+        : window.location.host.replace(`${window.location.host.split('.')[0]}.`, '');
     const subdomain = window.location.host.split('.')[0];
 
     return (

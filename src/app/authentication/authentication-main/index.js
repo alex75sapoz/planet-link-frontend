@@ -13,7 +13,7 @@ import Loader from '../../../library/base/base-loader';
 export default function AuthenticationMain() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
-    const [,setCookie] = useCookies();
+    const [, setCookie] = useCookies();
 
     useEffect(() => {
         var isDisposed;
@@ -26,6 +26,9 @@ export default function AuthenticationMain() {
             const protocol = window.location.protocol;
             const domain = window.location.host.replace(`${window.location.host.split('.')[0]}.`, '');
             const url = `${protocol}//${subdomain}.${domain}/${page}`
+
+            if (!userTypeId || !code || !subdomain || !page)
+                return;
 
             if (userTypeId === userTypeEnum.guest || !code) {
                 window.location = url;
