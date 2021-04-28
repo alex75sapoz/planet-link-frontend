@@ -228,7 +228,7 @@ export default function StockMarketAlertCreate() {
         data.configuration &&
         <StockMarketUserRequirement
             user={data.user}
-            createQuoteUserAlertRequirement={data.configuration.createQuoteUserAlertRequirement}
+            quoteUserAlertRequirement={data.configuration.quoteUserAlertRequirement}
             onIsUserMeetingRequirements={(isMeetingRequirements) => setData((data) => ({ ...data, isMeetingRequirements }))}
         />
         , [data.user, data.configuration]);
@@ -254,12 +254,12 @@ export default function StockMarketAlertCreate() {
         },
         maximumAlertsInProgressError: {
             isReady: Boolean(data.configuration) && Boolean(data.allQuoteUserAlertsInProgress) &&
-                data.configuration.createQuoteUserAlertRequirement.maximumAlertsInProgressCount <
+                data.configuration.quoteUserAlertRequirement.maximumAlertsInProgressCount <
                 data.allQuoteUserAlertsInProgress.length
         },
         newAlertContainer: {
             isReady: Boolean(data.configuration) && Boolean(data.allQuoteUserAlertsInProgress) && data.isMeetingRequirements &&
-                data.configuration.createQuoteUserAlertRequirement.maximumAlertsInProgressCount >
+                data.configuration.quoteUserAlertRequirement.maximumAlertsInProgressCount >
                 data.allQuoteUserAlertsInProgress.length,
             quotePicker: {
                 isReady: true
@@ -323,7 +323,7 @@ export default function StockMarketAlertCreate() {
                     Alerts In Progress Requirement
                     <br />
                     <br />
-                    Maximum Allowed is {data.configuration.createQuoteUserAlertRequirement.maximumAlertsInProgressCount}
+                    Maximum Allowed is {data.configuration.quoteUserAlertRequirement.maximumAlertsInProgressCount}
                     <br />
                     You have {data.quoteUserAlerts.length}
                     <br />

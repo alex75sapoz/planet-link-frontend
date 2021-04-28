@@ -10,7 +10,7 @@ import style from './style.module.scss';
 /**@param {Props} */
 export default function StockMarketUserRequirement({
     user,
-    createQuoteUserAlertRequirement,
+    quoteUserAlertRequirement,
     onIsUserMeetingRequirements
 }) {
     const data = useMemo(() => ({
@@ -18,53 +18,53 @@ export default function StockMarketUserRequirement({
             {
                 title: 'Followers',
                 requiredName: 'Minimum',
-                requiredValue: createQuoteUserAlertRequirement.minimumFollowersCount,
+                requiredValue: quoteUserAlertRequirement.minimumFollowersCount,
                 accountName: 'You Have',
-                accountValue: user.followersCount,
-                isMeetingRequirement: user.followersCount >= createQuoteUserAlertRequirement.minimumFollowersCount
+                accountValue: user.stocktwits.followersCount,
+                isMeetingRequirement: user.stocktwits.followersCount >= quoteUserAlertRequirement.minimumFollowersCount
             },
             {
                 title: 'Followings',
                 requiredName: 'Minimum',
-                requiredValue: createQuoteUserAlertRequirement.minimumFollowingsCount,
+                requiredValue: quoteUserAlertRequirement.minimumFollowingsCount,
                 accountName: 'You Have',
-                accountValue: user.followingsCount,
-                isMeetingRequirement: user.followingsCount >= createQuoteUserAlertRequirement.minimumFollowingsCount
+                accountValue: user.stocktwits.followingsCount,
+                isMeetingRequirement: user.stocktwits.followingsCount >= quoteUserAlertRequirement.minimumFollowingsCount
             },
             {
                 title: 'Posts',
                 requiredName: 'Minimum',
-                requiredValue: createQuoteUserAlertRequirement.minimumPostsCount,
+                requiredValue: quoteUserAlertRequirement.minimumPostsCount,
                 accountName: 'You Have',
-                accountValue: user.postsCount,
-                isMeetingRequirement: user.postsCount >= createQuoteUserAlertRequirement.minimumPostsCount
+                accountValue: user.stocktwits.postsCount,
+                isMeetingRequirement: user.stocktwits.postsCount >= quoteUserAlertRequirement.minimumPostsCount
             },
             {
                 title: 'Likes',
                 requiredName: 'Minimum',
-                requiredValue: createQuoteUserAlertRequirement.minimumLikesCount,
+                requiredValue: quoteUserAlertRequirement.minimumLikesCount,
                 accountName: 'You Have',
-                accountValue: user.likesCount,
-                isMeetingRequirement: user.likesCount >= createQuoteUserAlertRequirement.minimumLikesCount
+                accountValue: user.stocktwits.likesCount,
+                isMeetingRequirement: user.stocktwits.likesCount >= quoteUserAlertRequirement.minimumLikesCount
             },
             {
                 title: 'Watchlists',
                 requiredName: 'Quotes',
-                requiredValue: createQuoteUserAlertRequirement.minimumWatchlistQuotesCount,
+                requiredValue: quoteUserAlertRequirement.minimumWatchlistQuotesCount,
                 accountName: 'You Have',
-                accountValue: user.watchlistQuotesCount,
-                isMeetingRequirement: user.watchlistQuotesCount >= createQuoteUserAlertRequirement.minimumWatchlistQuotesCount
+                accountValue: user.stocktwits.watchlistQuotesCount,
+                isMeetingRequirement: user.stocktwits.watchlistQuotesCount >= quoteUserAlertRequirement.minimumWatchlistQuotesCount
             },
             {
                 title: 'Age',
                 requiredName: 'Months',
-                requiredValue: createQuoteUserAlertRequirement.minimumStocktwitsCreatedOnAgeInMonths,
+                requiredValue: quoteUserAlertRequirement.minimumStocktwitsCreatedOnAgeInMonths,
                 accountName: 'You Have',
-                accountValue: dayjs().subtract(1, 'month').diff(user.stocktwitsCreatedOn, 'month'),
-                isMeetingRequirement: dayjs().subtract(1, 'month').diff(user.stocktwitsCreatedOn, 'month') >= createQuoteUserAlertRequirement.minimumStocktwitsCreatedOnAgeInMonths
+                accountValue: dayjs().subtract(1, 'month').diff(user.stocktwits.createdOn, 'month'),
+                isMeetingRequirement: dayjs().subtract(1, 'month').diff(user.stocktwits.createdOn, 'month') >= quoteUserAlertRequirement.minimumStocktwitsCreatedOnAgeInMonths
             }
         ]
-    }), [user, createQuoteUserAlertRequirement]);
+    }), [user, quoteUserAlertRequirement]);
 
     useEffect(() => {
         onIsUserMeetingRequirements && onIsUserMeetingRequirements(!data.requirements.some(requirement => !requirement.isMeetingRequirement));
@@ -102,6 +102,6 @@ export default function StockMarketUserRequirement({
 /**Props
  * @typedef Props
  * @property {UserContract} user
- * @property {StockMarketCreateQuoteUserAlertRequirementConfigurationContract} createQuoteUserAlertRequirement
+ * @property {StockMarketQuoteUserAlertRequirementConfigurationContract} quoteUserAlertRequirement
  * @property {(isMeetingRequirements: boolean) => void} onIsUserMeetingRequirements
 */
