@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
 import cn from 'classnames';
@@ -23,9 +23,12 @@ export default function User({
     const [userSession, setUserSession] = useState(undefined);
     const [isHover, setIsHover] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies([userSessionTokenCacheKey]);
+    const isSigningOut = useRef(false);
 
     //Authenticate
     useEffect(() => {
+        if (isSigningOut.current) return;
+
         var isDisposed;
 
         const load = async () => {
@@ -60,6 +63,7 @@ export default function User({
 
         const dispose = () => {
             isDisposed = true;
+            if (isSigningOut.current) return;
             setApiConfigurationUserSession(guestSession);
             setUserSession(guestSession);
             onAuthenticated && onAuthenticated(guestSession.user);
@@ -71,7 +75,7 @@ export default function User({
 
     //Authenticate Interval
     useEffect(() => {
-        if (!userSession || userSession.user.isGuest) return;
+        if (!userSession || userSession.user.isGuest || isSigningOut.current) return;
 
         var isDisposed, intervalId;
 
@@ -118,6 +122,7 @@ export default function User({
                                 return;
                             }
 
+                            isSigningOut.current = true;
                             removeCookie(userSessionTokenCacheKey, cache.userSessionCookieOptions());
                             await UserController.revoke.post();
                             window.location.reload();

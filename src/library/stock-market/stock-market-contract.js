@@ -133,11 +133,11 @@
  * @property {StockMarketAlertCompletedTypeContract[]} alertCompletedTypes
  * @property {StockMarketExchangeContract[]} exchanges
  * @property {StockMarketEmotionContract[]} emotions
- * @property {StockMarketCreateQuoteUserAlertRequirementConfigurationContract} createQuoteUserAlertRequirement
+ * @property {StockMarketQuoteUserAlertRequirementConfigurationContract} quoteUserAlertRequirement
 */
 
-/**StockMarketCreateQuoteUserAlertRequirementConfigurationContract
- * @typedef StockMarketCreateQuoteUserAlertRequirementConfigurationContract
+/**StockMarketQuoteUserAlertRequirementConfigurationContract
+ * @typedef StockMarketQuoteUserAlertRequirementConfigurationContract
  * @property {number} minimumFollowersCount
  * @property {number} minimumFollowingsCount
  * @property {number} minimumStocktwitsCreatedOnAgeInMonths
