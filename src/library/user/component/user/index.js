@@ -55,7 +55,7 @@ export default function User({
 
             authenticatedUserSession.user.isGuest = false;
 
-            setCookie(userSessionTokenCacheKey, cachedUserSessionToken, cache.userSessionCookieOptions(authenticatedUserSession.tokenExpiresOn));
+            setCookie(userSessionTokenCacheKey, authenticatedUserSession.token, cache.userSessionCookieOptions(authenticatedUserSession.tokenExpiresOn));
             setApiConfigurationUserSession(authenticatedUserSession);
             setUserSession(authenticatedUserSession);
             onAuthenticated && onAuthenticated(authenticatedUserSession.user);
