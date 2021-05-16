@@ -25,10 +25,20 @@ export default class ApiController {
         parameters = { ...parameters };
         headers = { [apiHeader.userTypeId]: userSession.user.type.typeId, [apiHeader.token]: userSession.token, [apiHeader.timezoneId]: Intl.DateTimeFormat().resolvedOptions().timeZone, ...headers };
 
-        parameters && Object.keys(parameters).forEach(key => (parameters[key] === undefined || parameters[key] === null) && delete parameters[key]);
+        parameters && Object.keys(parameters).forEach(key => (parameters[key] === undefined || parameters[key] === null || (Array.isArray(parameters[key]) && parameters[key].length === 0)) && delete parameters[key]);
         headers && Object.keys(headers).forEach(key => (headers[key] === undefined || headers[key] === null) && delete headers[key]);
 
-        var queryString = Object.keys(parameters).map((key, index) => (index === 0 ? `?${key}` : key) + '=' + encodeURIComponent(parameters[key])).join('&');
+        var queryString = Object.keys(parameters).map((key, index) =>
+            (index === 0
+                ? '?'
+                : ''
+            )
+            +
+            (Array.isArray(parameters[key])
+                ? parameters[key].map((value) => `${key}=${encodeURIComponent(value)}`).join('&')
+                : `${key}=${encodeURIComponent(parameters[key])}`
+            )
+        ).join('&');
 
         var url = apiServer + path + queryString;
 

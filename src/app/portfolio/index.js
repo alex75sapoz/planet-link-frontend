@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Loader from '../../library/base/base-loader';
 
-export default function Authenticate() {
+export default function LSK() {
     const Home = lazy(() => import('./home'));
 
     return (

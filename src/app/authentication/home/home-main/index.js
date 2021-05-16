@@ -2,15 +2,15 @@ import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
-import UserController from '../../../api/user-controller';
+import UserController from '../../../../api/user-controller';
 
-import { cache } from '../../../library/user/component/user/configuration';
+import { cache } from '../../../../library/user/component/user/configuration';
 
-import { userTypeEnum } from '../../../library/user/user-enum';
+import { userTypeEnum } from '../../../../library/user/user-enum';
 
-import Loader from '../../../library/base/base-loader';
+import Loader from '../../../../library/base/base-loader';
 
-export default function AuthenticationMain() {
+export default function HomeMain() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [, setCookie] = useCookies();

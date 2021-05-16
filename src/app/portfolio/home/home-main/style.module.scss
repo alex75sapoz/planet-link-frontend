@@ -1,0 +1,166 @@
+@import '../../../../library/base/base-style.scss';
+
+.name {
+    color: $cyan-normal;
+}
+
+.filterName {
+    background: $page-dark;
+    color: $white-dark;
+    height: 50px;
+    text-align: center;
+    height: 50px;
+    padding: 5px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter {
+    border: solid 1px $white-dark;
+    color: $white-normal;
+    text-align: center;
+    cursor: pointer;
+    height: 50px;
+    padding: 5px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        border-color: $white-bright;
+        color: $white-bright;
+    }
+
+    &.active {
+        background: $white-bright;
+        color: $page-dark;
+        border-color: $white-bright;
+    }
+}
+
+@media (max-width: 767px) {
+    .mobileFilter {
+        display: none !important;
+    }
+    
+    .filter {
+        font-size: 0.85rem;
+    }
+}
+
+.filterFrontend {
+    border-color: $orange-dark;
+    color: $orange-normal;
+
+    &:hover {
+        color: $orange-bright;
+        border-color: $orange-bright;
+    }
+
+    &.active {
+        color: $orange-bright;
+        border-color: $orange-bright;
+        background: $hover-bright;
+    }
+}
+
+.filterBackend {
+    border-color: $cyan-dark;
+    color: $cyan-normal;
+
+    &:hover {
+        color: $cyan-bright;
+        border-color: $cyan-bright;
+    }
+
+    &.active {
+        color: $cyan-bright;
+        border-color: $cyan-bright;
+        background: $hover-bright;
+    }
+}
+
+.filterFull {
+    border-color: $green-dark;
+    color: $green-normal;
+
+    &:hover {
+        color: $green-bright;
+        border-color: $green-bright;
+    }
+
+    &.active {
+        color: $green-bright;
+        border-color: $green-bright;
+        background: $hover-bright;
+    }
+}
+
+.projectContainer {
+    border: solid 1px $white-dark
+}
+
+.projectTile {
+    border: solid 1px $white-normal;
+    color: $white-bright;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 0.8rem;
+    height: 50px;
+    margin: auto;
+    cursor: pointer;
+    background: $hover-normal;
+}
+
+.projectFrontend {
+    border-color: $orange-dark;
+    color: $orange-normal;
+
+    &:hover {
+        color: $orange-bright;
+        border-color: $orange-bright;
+        background: $hover-bright;
+    }
+}
+
+.projectBackend {
+    border-color: $cyan-dark;
+    color: $cyan-normal;
+
+    &:hover {
+        color: $cyan-bright;
+        border-color: $cyan-bright;
+        background: $hover-bright;
+    }
+}
+
+.projectFull {
+    border-color: $green-dark;
+    color: $green-normal;
+
+    &:hover {
+        color: $green-bright;
+        border-color: $green-bright;
+        background: $hover-bright;
+    }
+}
+
+.arrow {
+    color: $white-normal;
+    font-size: 2.2rem;
+    cursor: pointer;
+
+    &:hover {
+        color: $white-bright;
+    }
+}
+
+.error {
+    color: $white-normal;
+}

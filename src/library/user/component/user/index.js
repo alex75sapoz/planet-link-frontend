@@ -55,9 +55,9 @@ export default function User({
 
             authenticatedUserSession.user.isGuest = false;
 
-            setCookie(userSessionTokenCacheKey, authenticatedUserSession.token, cache.userSessionCookieOptions(authenticatedUserSession.tokenExpiresOn));
             setApiConfigurationUserSession(authenticatedUserSession);
             setUserSession(authenticatedUserSession);
+            setCookie(userSessionTokenCacheKey, authenticatedUserSession.token, cache.userSessionCookieOptions(authenticatedUserSession.tokenExpiresOn));
             onAuthenticated && onAuthenticated(authenticatedUserSession.user);
         };
 
@@ -90,9 +90,9 @@ export default function User({
 
                 authenticatedUserSession.user.isGuest = false;
 
-                setCookie(userSessionTokenCacheKey, authenticatedUserSession.token, cache.userSessionCookieOptions(authenticatedUserSession.tokenExpiresOn));
                 setApiConfigurationUserSession(authenticatedUserSession);
                 setUserSession(authenticatedUserSession);
+                setCookie(userSessionTokenCacheKey, authenticatedUserSession.token, cache.userSessionCookieOptions(authenticatedUserSession.tokenExpiresOn));
             }, interval.authenticateInMilliseconds);
         };
 

@@ -5,6 +5,7 @@ import Loader from '../library/base/base-loader';
 export default function App() {
     const Authentication = lazy(() => import('./authentication'));
     const LSK = lazy(() => import('./lsk'));
+    const Portfolio = lazy(() => import('./portfolio'));
 
     const protocol = window.location.protocol;
     const domain = window.location.host.match(/\./g).length === 1
@@ -18,7 +19,8 @@ export default function App() {
                 {
                     {
                         authentication: <Authentication />,
-                        lsk: <LSK />
+                        lsk: <LSK />,
+                        portfolio: <Portfolio />
                     }[subdomain] ||
                     <div>
                         <div className='mb-5'></div>

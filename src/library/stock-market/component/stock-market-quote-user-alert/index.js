@@ -24,7 +24,7 @@ export default function StockMarketQuoteUserAlert({
         stopLossPoints: quoteUserAlert.stopLossPoints.toFixed(2),
         completedSell: quoteUserAlert.completedSell?.toFixed(2),
         completedSellPoints: quoteUserAlert.completedSellPoints?.toFixed(2),
-        username: quoteUserAlert.user.username,
+        username: quoteUserAlert.user.stocktwits.username,
         createdOnDate: quoteUserAlert.createdOn.format('MM/DD/YYYY'),
         createdOnTime: quoteUserAlert.createdOn.format('hh:mm A'),
         completedOnDate: quoteUserAlert.completedOn?.format('MM/DD/YYYY'),
