@@ -45,7 +45,7 @@
     .mobileFilter {
         display: none !important;
     }
-    
+
     .filter {
         font-size: 0.85rem;
     }
@@ -100,7 +100,8 @@
 }
 
 .projectContainer {
-    border: solid 1px $white-dark
+    border-top: dashed 1px $white-dark;
+    min-height: 335px;
 }
 
 .projectTile {
@@ -159,6 +160,99 @@
     &:hover {
         color: $white-bright;
     }
+}
+
+.pageTitle {
+    color: $cyan-normal;
+}
+
+.container {
+    border: solid 1px $white-dark;
+}
+
+.bioContainer {
+    border-top: dashed 1px $white-dark;
+}
+
+.bioDescription {
+    color: $white-normal;
+}
+
+.bioTitle {
+    color: $white-bright;
+}
+
+.bioName {
+    color: $cyan-normal;
+}
+
+.bioValue {
+    color: $white-normal;
+}
+
+.imageContainer {
+    text-align: center;
+    & > img {
+        filter: $filter-shadow-medium;
+    }
+
+    & > p {
+        font-size: 1.3rem;
+        padding-top: 5px;
+        font-weight: 700;
+        color: $white-dark;
+    }
+}
+
+.imageHover {
+    cursor: pointer;
+    opacity: 0.85;
+    text-decoration: none !important;
+
+    & > img {
+        filter: contrast(0);
+    }
+
+    &:hover {
+        opacity: 1;
+
+        & > img {
+            filter: contrast(0) brightness(2) !important;
+        }
+
+        & > p {
+            color: $white-bright;
+        }
+    }
+}
+
+.resume {
+    cursor: pointer;
+    border: solid 1px $white-dark;
+    color: $white-dark;
+    width: fit-content;
+
+    &:hover {
+        border: solid 1px $white-bright;
+        color: $page-dark;
+        background: $white-bright;
+    }
+}
+
+@media (max-width: 767px) {
+    .imageContainer {
+        & > img {
+            height: 30px !important;
+        }
+
+        & > p {
+            font-size: 1rem;
+        }
+    }
+}
+
+.endingText {
+    color: $white-bright;
 }
 
 .error {
