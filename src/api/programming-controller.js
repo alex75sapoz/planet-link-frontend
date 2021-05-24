@@ -40,3 +40,9 @@ export default class ProgrammingController extends ApiController {
         }
     }
 }
+
+export class ProgrammingAsset extends ApiController {
+    static resume = {
+        alexSapozhnikovResume: this.storage.library('/programming/resume/alex-sapozhnikov-resume.pdf')
+    }
+}

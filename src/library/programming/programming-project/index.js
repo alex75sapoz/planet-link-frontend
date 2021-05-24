@@ -8,8 +8,8 @@ export default function ProgrammingProject({
     project
 }) {
     return (
-        <Container>
-            <Row className='pb-3 ps-3 pe-3'>
+        <Container className='ps-0 pe-0'>
+            <Row className='pb-3 ps-5 pe-5'>
                 <Col className={cn(style.name, 'fs-4 fw-bold text-center')}>
                     {project.name}
                 </Col>

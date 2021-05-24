@@ -41,6 +41,12 @@
     }
 }
 
+@media (max-width: 1199px) {
+    .projectTile {
+        font-size: 0.7rem !important;
+    }
+}
+
 @media (max-width: 767px) {
     .mobileFilter {
         display: none !important;
@@ -48,6 +54,28 @@
 
     .filter {
         font-size: 0.85rem;
+    }
+
+    .projectTile {
+        font-size: 0.75rem !important;
+        padding-top: 15px !important;
+    }
+
+    .projectTileYear {
+        font-size: 0.5rem !important;
+        padding-top: 3px !important;
+        padding-left: 5px !important;
+    }
+
+    .projectTileStar {
+        padding-top: 5px !important;
+        padding-right: 4px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .projectTile {
+        font-size: 0.6rem !important;
     }
 }
 
@@ -101,22 +129,60 @@
 
 .projectContainer {
     border-top: dashed 1px $white-dark;
-    min-height: 335px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $white-dark;
+
+        &:hover {
+            background: $white-normal;
+        }
+    }
 }
 
 .projectTile {
     border: solid 1px $white-normal;
+    position: relative;
     color: $white-bright;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
-    font-size: 0.8rem;
+    padding-top: 10px;
+    font-size: 0.85rem;
     height: 50px;
     margin: auto;
     cursor: pointer;
     background: $hover-normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.projectTileYear {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.6rem;
+    padding-top: 3px;
+    padding-left: 10px;
+}
+
+.projectTileStar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.55rem;
+    padding-top: 7px;
+    padding-right: 8px;
+    color: $yellow-bright !important;
 }
 
 .projectFrontend {
@@ -224,6 +290,10 @@
             color: $white-bright;
         }
     }
+}
+
+.resumeContainer {
+    text-decoration: none !important;
 }
 
 .resume {
