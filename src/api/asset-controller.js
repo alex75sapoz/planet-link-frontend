@@ -22,6 +22,7 @@ export class Asset extends ApiController {
         lucidchart: this.storage.asset('/technology/lucidchart.svg'),
         chrome: this.storage.asset('/technology/chrome.svg'),
         github: this.storage.asset('/technology/github.svg'),
-        linkedin: this.storage.asset('/technology/linkedin.svg')
+        linkedin: this.storage.asset('/technology/linkedin.svg'),
+        planetLink: this.storage.asset('/technology/planet-link.svg')
     }
 }
