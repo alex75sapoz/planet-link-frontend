@@ -147,11 +147,11 @@ export default function HomeMain() {
                 <Row className='pb-3'>
                     <Col>
                         <div className='d-flex justify-content-center'>
-                            <a href='https://www.linkedin.com/in/alex-sapozhnikov-7449081b8' rel='noopener noreferrer' target='_blank' className={cn(style.imageContainer, style.imageHover, 'm-3')}>
+                            <a href='https://www.linkedin.com/in/alex-sapozhnikov-7449081b8' rel='noopener noreferrer' target='_blank' className={cn(style.imageContainer, style.imageHover, 'm-2 m-md-3')}>
                                 <img src={Asset.technology.linkedin} style={{ padding: '5px' }} height={40} alt='' />
                                 <p>LinkedIn</p>
                             </a>
-                            <a href='https://lsk.planet-link.com' rel='noopener noreferrer' target='_blank' className={cn(style.imageContainer, style.imageHover, 'm-3')}>
+                            <a href='https://lsk.planet-link.com' rel='noopener noreferrer' target='_blank' className={cn(style.imageContainer, style.imageHover, 'm-2 m-md-3')}>
                                 <img src={Asset.technology.planetLink} style={{ padding: '5px' }} height={40} alt='' />
                                 <p>LSK</p>
                                 <p className={cn(style.personalSite)}>
@@ -160,7 +160,7 @@ export default function HomeMain() {
                                     Website
                                 </p>
                             </a>
-                            <a href='https://github.com/SovietAlex' rel='noopener noreferrer' target='_blank' className={cn(style.imageContainer, style.imageHover, 'm-3')}>
+                            <a href='https://github.com/SovietAlex' rel='noopener noreferrer' target='_blank' className={cn(style.imageContainer, style.imageHover, 'm-2 m-md-3')}>
                                 <img src={Asset.technology.github} style={{ padding: '5px' }} height={40} alt='' />
                                 <p>Github</p>
                             </a>
