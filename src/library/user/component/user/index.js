@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
 import cn from 'classnames';
@@ -23,13 +23,11 @@ export default function User({
     const [userSession, setUserSession] = useState(undefined);
     const [isHover, setIsHover] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies([userSessionTokenCacheKey]);
-    const isSigningIn = useRef(false);
-    const isSigningOut = useRef(false);
+    const [isSigningIn, setIsSigningIn] = useState(true);
+    const [isSigningOut, setIsSigningOut] = useState(false);
 
     //Authenticate
     useEffect(() => {
-        if (isSigningOut.current || isSigningIn.current) return;
-
         var isDisposed;
 
         const load = async () => {
@@ -40,18 +38,20 @@ export default function User({
                 removeCookie(userSessionTokenCacheKey, cache.userSessionCookieOptions());
                 setApiConfigurationUserSession(guestSession);
                 setUserSession(guestSession);
+                setIsSigningIn(false);
                 onAuthenticated && onAuthenticated(guestSession.user);
                 return;
             }
 
-            isSigningIn.current = true;
+            setIsSigningIn(true);
+
             var { data: authenticatedUserSession, isSuccess } = await UserController.authenticate.get({ userTypeId, token: cachedUserSessionToken }); if (isDisposed) return;
-            isSigningIn.current = false;
 
             if (!isSuccess) {
                 removeCookie(userSessionTokenCacheKey, cache.userSessionCookieOptions());
                 setApiConfigurationUserSession(guestSession);
                 setUserSession(guestSession);
+                setIsSigningIn(false);
                 onAuthenticated && onAuthenticated(guestSession.user);
                 return;
             }
@@ -61,25 +61,29 @@ export default function User({
             setApiConfigurationUserSession(authenticatedUserSession);
             setUserSession(authenticatedUserSession);
             setCookie(userSessionTokenCacheKey, authenticatedUserSession.token, cache.userSessionCookieOptions(authenticatedUserSession.tokenExpiresOn));
+            setIsSigningIn(false);
             onAuthenticated && onAuthenticated(authenticatedUserSession.user);
         };
 
         const dispose = () => {
             isDisposed = true;
-            if (isSigningOut.current) return;
-            isSigningIn.current = false;
             setApiConfigurationUserSession(guestSession);
             setUserSession(guestSession);
+            setIsSigningIn(true);
+            setIsSigningOut(false);
             onAuthenticated && onAuthenticated(guestSession.user);
         };
 
         load();
         return dispose;
-    }, [userTypeId, onAuthenticated, userSessionTokenCacheKey, cookies, setCookie, removeCookie]);
+
+        //Ignore cookies dependency
+        // eslint-disable-next-line
+    }, [userTypeId, onAuthenticated, userSessionTokenCacheKey, setCookie, removeCookie]);
 
     //Authenticate Interval
     useEffect(() => {
-        if (!userSession || userSession.user.isGuest || isSigningOut.current) return;
+        if (!userSession || userSession.user.isGuest) return;
 
         var isDisposed, intervalId;
 
@@ -107,7 +111,29 @@ export default function User({
 
         load();
         return dispose;
-    }, [userSession, userTypeId, onAuthenticated,userSessionTokenCacheKey, setCookie]);
+    }, [userSession, userTypeId, onAuthenticated, userSessionTokenCacheKey, setCookie]);
+
+    const getLabel = () => {
+        if (isSigningIn)
+            return 'Signing In...';
+
+        if (isSigningOut)
+            return 'Signing Out...';
+
+        if (!userSession || userSession.user.isGuest)
+            return isHover
+                ? 'Sign In'
+                : 'Guest';
+
+        if (isHover)
+            return 'Sign Out';
+
+        switch (userSession.user.type.typeId) {
+            case userTypeEnum.google: return userSession.user.google.name;
+            case userTypeEnum.stocktwits: return userSession.user.stocktwits.username;
+            default: return 'Unknown';
+        }
+    };
 
     return (
         <Container className='container-fluid ps-0 pe-0'>
@@ -126,7 +152,7 @@ export default function User({
                                 return;
                             }
 
-                            isSigningOut.current = true;
+                            setIsSigningOut(true);
                             removeCookie(userSessionTokenCacheKey, cache.userSessionCookieOptions());
                             await UserController.revoke.post();
                             window.location.reload();
@@ -135,19 +161,9 @@ export default function User({
                         onMouseOut={() => setIsHover(false)}
                         className={cn(style.container, { [style.isAuthenticated]: !userSession?.user.isGuest, [style.isDeauthenticated]: userSession?.user.isGuest }, 'm-auto ps-3 pe-3 pt-2 pb-2')}
                     >
-                        <p className={cn(style.name, 'fw-bold text-center')}>{
-                            isHover
-                                ? !userSession?.user.isGuest
-                                    ? 'Sign Out'
-                                    : 'Sign In'
-                                : userSession
-                                    ? userSession.user.isGuest
-                                        ? 'Guest'
-                                        : userSession.user.type.typeId === userTypeEnum.google
-                                            ? userSession.user.google.name
-                                            : userSession.user.stocktwits.username
-                                    : 'Signing In...'
-                        }</p>
+                        <p className={cn(style.name, 'fw-bold text-center')}>
+                            {getLabel()}
+                        </p>
                     </div>
                 </Col>
             </Row>
