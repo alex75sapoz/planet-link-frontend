@@ -298,6 +298,15 @@
     }
 }
 
+@media (max-width: 330px) {
+    .imageHover {
+        & > img {
+            width: 60px !important;
+            height: 50px !important;
+        }
+    }
+}
+
 .resumeContainer {
     text-decoration: none !important;
 }
