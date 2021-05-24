@@ -119,6 +119,7 @@ export default function HomeMain() {
             container: {
                 isReady: data.isProjectsLoaded && data.projects,
                 isLoading: !data.isProjectsLoaded,
+                isNoProjects: data.isProjectsLoaded && data.projects && data.projects.length === 0,
                 isError: data.isProjectsLoaded && !data.projects
             }
         },
@@ -432,6 +433,14 @@ export default function HomeMain() {
                             </Fragment>
                         }
                         {
+                            metadata.projects.container.isNoProjects &&
+                            <p className={cn(style.error, 'fs-4 fw-bold d-flex flex-column h-100 align-items-center justify-content-center')}>
+                                No Projects Found
+                                <br />
+                                <Emoji symbol='😮' label='wow' />
+                            </p>
+                        }
+                        {
                             metadata.projects.container.isLoading &&
                             <Loader isRelative={true} height={300} />
                         }
@@ -440,7 +449,7 @@ export default function HomeMain() {
                             <p className={cn(style.error, 'fs-4 fw-bold text-center')}>
                                 Problem loading projects
                             <br />
-                            Try refreshing in a few seconds <Emoji symbol='😐' label='sad' />
+                                Try refreshing in a few seconds <Emoji symbol='😐' label='sad' />
                             </p>
                         }
                     </Container>
