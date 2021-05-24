@@ -23,11 +23,12 @@ export default function User({
     const [userSession, setUserSession] = useState(undefined);
     const [isHover, setIsHover] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies([userSessionTokenCacheKey]);
+    const isSigningIn = useRef(false);
     const isSigningOut = useRef(false);
 
     //Authenticate
     useEffect(() => {
-        if (isSigningOut.current) return;
+        if (isSigningOut.current || isSigningIn.current) return;
 
         var isDisposed;
 
@@ -43,7 +44,9 @@ export default function User({
                 return;
             }
 
+            isSigningIn.current = true;
             var { data: authenticatedUserSession, isSuccess } = await UserController.authenticate.get({ userTypeId, token: cachedUserSessionToken }); if (isDisposed) return;
+            isSigningIn.current = false;
 
             if (!isSuccess) {
                 removeCookie(userSessionTokenCacheKey, cache.userSessionCookieOptions());
@@ -64,6 +67,7 @@ export default function User({
         const dispose = () => {
             isDisposed = true;
             if (isSigningOut.current) return;
+            isSigningIn.current = false;
             setApiConfigurationUserSession(guestSession);
             setUserSession(guestSession);
             onAuthenticated && onAuthenticated(guestSession.user);

@@ -27,6 +27,7 @@
  * @property {number} projectId
  * @property {string} name
  * @property {string} description
+ * @property {boolean} isImportant
  * @property {import('dayjs').Dayjs} createdOn
  * @property {ProgrammingProjectTypeContract} type
  * @property {ProgrammingJobContract} job

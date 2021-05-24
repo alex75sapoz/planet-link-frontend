@@ -1,17 +1,17 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import React, { Fragment, useEffect, useMemo, useState, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Emoji from 'a11y-react-emoji';
 import cn from 'classnames';
 
 import { technologyStackEnum } from '../../../../library/programming/programming-enum';
 
-import ProgrammingController from '../../../../api/programming-controller';
+import ProgrammingController, { ProgrammingAsset } from '../../../../api/programming-controller';
+import { Asset } from '../../../../api/asset-controller';
 
 import Loader from '../../../../library/base/base-loader';
+import ProgrammingProject from '../../../../library/programming/programming-project';
 
 import style from './style.module.scss';
-import ProgrammingProject from '../../../../library/programming/programming-project';
-import { Asset } from '../../../../api/asset-controller';
 
 export default function HomeMain() {
     /**@type {[Data, React.Dispatch<React.SetStateAction<Data>>]} */
@@ -26,6 +26,10 @@ export default function HomeMain() {
     const [selectedTechnologyStack, setSelectedTechnologyStack] = useState(undefined);
     /**@type {[ProgrammingProjectContract, React.Dispatch<React.SetStateAction<ProgrammingProjectContract>>]} */
     const [selectedProject, setSelectedProject] = useState(undefined);
+    const [projectsContainerScrollPosition, setProjectsContainerScrollPosition] = useState(0);
+
+    /**@type {React.MutableRefObject<HTMLDivElement>} */
+    const projectsContainer = useRef(undefined);
 
     //Step 1
     //Load configuration
@@ -100,6 +104,12 @@ export default function HomeMain() {
         return dispose;
     }, [data.configuration, selectedProjectType, selectedLanguage, selectedJob, selectedTechnologyStack]);
 
+    useEffect(() => {
+        if (!projectsContainer.current || selectedProject) return;
+
+        projectsContainer.current.scrollTop = projectsContainerScrollPosition;
+    }, [selectedProject, projectsContainerScrollPosition])
+
     const metadata = useMemo(() => ({
         filters: {
             isReady: Boolean(data.configuration)
@@ -149,7 +159,11 @@ export default function HomeMain() {
                 </Row>
                 <Row>
                     <Col>
-                        <p className={cn(style.resume, 'fs-3 ps-3 pe-3 m-auto fw-bold text-center')}>Resume</p>
+                        <div className='d-flex justify-content-center'>
+                            <a href={ProgrammingAsset.resume.alexSapozhnikovResume} rel='noopener noreferrer' target='_blank' className={cn(style.resumeContainer)}>
+                                <p className={cn(style.resume, 'fs-3 ps-3 pe-3 m-auto fw-bold text-center')}>Resume</p>
+                            </a>
+                        </div>
                     </Col>
                 </Row>
             </Container>
@@ -351,7 +365,11 @@ export default function HomeMain() {
                 {/* Projects */}
                 {
                     metadata.projects.isReady &&
-                    <Container className={cn(style.projectContainer, 'pt-3 ps-0 pe-0 position-relative')}>
+                    <Container ref={projectsContainer} className={cn(style.projectContainer, 'pt-3 position-relative')} onScroll={() => {
+                        if (selectedProject) return;
+
+                        setProjectsContainerScrollPosition(projectsContainer.current.scrollTop);
+                    }}>
                         {
                             metadata.projects.container.isReady &&
                             <Fragment>
@@ -369,11 +387,18 @@ export default function HomeMain() {
                                                         [style.projectFull]: project.technologyStack.technologyStackId === technologyStackEnum.full,
                                                     })}
                                                     key={project.projectId}
-                                                    onClick={() => setSelectedProject(project)}
+                                                    onClick={() => {
+                                                        setSelectedProject(project);
+                                                        projectsContainer.current.scrollTop = 0;
+                                                    }}
                                                 >
                                                     <p className='fw-bold'>
                                                         {project.tag}
                                                     </p>
+                                                    <p className={cn(style.projectTileYear, 'fw-bold')}>
+                                                        {project.createdOn.format('YYYY')}
+                                                    </p>
+                                                    {project.isImportant && <i className={cn(style.projectTileStar, 'fas fa-star fw-bold')}></i>}
                                                 </div>
                                             </Col>
                                         )}
