@@ -361,7 +361,7 @@ export default function StockMarketMain() {
             timeframes={data.configuration.timeframes}
             onClick={(timeframe) => {
                 setSelectedTimeframe(timeframe);
-                setData((data) => ({ ...data, quoteCandles: undefined }));
+                setData((data) => ({ ...data, isQuoteCandlesLoaded: false }));
             }}
             onMultiplierClick={(timeframeMultiplier) => setSelectedTimeframeMultiplier(timeframeMultiplier)}
         />
