@@ -52,19 +52,30 @@ export default function StockMarketQuoteChart({
 
         var activeCandles = candles.filter(candle => candle.close === 0 || candle.close);
 
-        var previousClose = candles[0].close;
+        var previousClose = quoteUserAlert?.buy || candles[0].close;
         var max = Math.max(...activeCandles.map((candle) => candle.close));
         var min = Math.min(...activeCandles.map((candle) => candle.close));
+        var baseline = (100 - ((previousClose - min) / (max - min) * 100)) || 0;
 
         if (quoteUserAlert) {
-            if ((quoteUserAlert.completedSell || quoteUserAlert.sell) > max)
-                max = Number.parseFloat((quoteUserAlert.completedSell || quoteUserAlert.sell).toPrecision(4));
+            if (quoteUserAlert.completedSell) {
+                max = quoteUserAlert.completedSell > max
+                    ? Number.parseFloat(quoteUserAlert.completedSell.toPrecision(4))
+                    : max;
 
-            if (!quoteUserAlert.completedSell && quoteUserAlert.stopLoss < min)
-                min = quoteUserAlert.stopLoss;
+                min = quoteUserAlert.completedSell < min
+                    ? Number.parseFloat(quoteUserAlert.completedSell.toPrecision(4))
+                    : min;
+            } else {
+                max = quoteUserAlert.sell > max
+                    ? Number.parseFloat(quoteUserAlert.sell.toPrecision(4))
+                    : max;
+
+                min = quoteUserAlert.stopLoss < min
+                    ? Number.parseFloat(quoteUserAlert.stopLoss.toPrecision(4))
+                    : min;
+            }
         }
-
-        var baseline = (100 - ((previousClose - min) / (max - min) * 100)) || 0;
 
         return {
             candles: activeCandles,

@@ -131,11 +131,6 @@ export default function StockMarketMain() {
                     setData((data) => ({ ...data, global: globalResponse.data }));
                 }, interval.globalInMilliseconds),
                 setInterval(async () => {
-                    const quotePriceResponse = await StockMarketController.quote.price.get({ quoteId: selectedQuote.quoteId }); if (isDisposed) return;
-                    if (!quotePriceResponse.isSuccess) return;
-                    setData((data) => ({ ...data, quotePrice: quotePriceResponse.data }));
-                }, interval.quotePriceInMilliseconds),
-                setInterval(async () => {
                     const quoteEmotionCountsResponse = await StockMarketController.quote.emotion.counts.get({ quoteId: selectedQuote.quoteId }); if (isDisposed) return;
                     if (!quoteEmotionCountsResponse.isSuccess) return;
                     setData((data) => ({ ...data, quoteEmotionCounts: quoteEmotionCountsResponse.data }));
@@ -165,12 +160,38 @@ export default function StockMarketMain() {
         return dispose;
     }, [selectedQuote, data.configuration, data.user]);
 
-    //Step 2 - Async
+    //Step 2.1
+    //Create interval if exchange is open
+    useEffect(() => {
+        if (!isOpenForTrading) return;
+
+        var isDisposed = false, intervalIds = [];
+
+        const load = () => {
+            intervalIds = [
+                setInterval(async () => {
+                    const quotePriceResponse = await StockMarketController.quote.price.get({ quoteId: selectedQuote.quoteId }); if (isDisposed) return;
+                    if (!quotePriceResponse.isSuccess) return;
+                    setData((data) => ({ ...data, quotePrice: quotePriceResponse.data }));
+                }, interval.quotePriceInMilliseconds)
+            ]
+        };
+
+        const dispose = () => {
+            isDisposed = true;
+            intervalIds.forEach(intervalId => clearInterval(intervalId));
+        };
+
+        load();
+        return dispose;
+    }, [selectedQuote, isOpenForTrading]);
+
+    //Step 2
     //Load chart data related to the quote
     useEffect(() => {
         if (!selectedQuote || !selectedTimeframe || !data.configuration) return;
 
-        var isDisposed = false, intervalIds = [];
+        var isDisposed = false;
 
         const load = async () => {
             const quoteCandlesResponse = await StockMarketController.quote.candles.get({ quoteId: selectedQuote.quoteId, timeframeId: selectedTimeframe.timeframeId }); if (isDisposed) return;
@@ -182,19 +203,10 @@ export default function StockMarketMain() {
                 quoteCandles: quoteCandlesResponse.data,
                 isQuoteCandlesLoaded: true
             }));
-
-            intervalIds = [
-                setInterval(async () => {
-                    const quoteCandlesResponse = await StockMarketController.quote.candles.get({ quoteId: selectedQuote.quoteId, timeframeId: selectedTimeframe.timeframeId }); if (isDisposed) return;
-                    if (!quoteCandlesResponse.isSuccess) return;
-                    setData((data) => ({ ...data, quoteCandles: quoteCandlesResponse.data }));
-                }, interval.quoteCandlesInMilliseconds)
-            ];
         };
 
         const dispose = () => {
             isDisposed = true;
-            intervalIds.forEach(intervalId => clearInterval(intervalId));
             setSelectedCandle(undefined);
             setSelectedQuoteUserAlert(undefined);
             setData((data) => ({
@@ -207,6 +219,32 @@ export default function StockMarketMain() {
         load();
         return dispose;
     }, [selectedQuote, selectedTimeframe, data.configuration]);
+
+    //Step 2.1
+    //Create interval if exchange is open
+    useEffect(() => {
+        if (!isOpenForTrading) return;
+
+        var isDisposed = false, intervalIds = [];
+
+        const load = () => {
+            intervalIds = [
+                setInterval(async () => {
+                    const quoteCandlesResponse = await StockMarketController.quote.candles.get({ quoteId: selectedQuote.quoteId, timeframeId: selectedTimeframe.timeframeId }); if (isDisposed) return;
+                    if (!quoteCandlesResponse.isSuccess) return;
+                    setData((data) => ({ ...data, quoteCandles: quoteCandlesResponse.data }));
+                }, interval.quoteCandlesInMilliseconds)
+            ]
+        };
+
+        const dispose = () => {
+            isDisposed = true;
+            intervalIds.forEach(intervalId => clearInterval(intervalId));
+        };
+
+        load();
+        return dispose;
+    }, [selectedQuote, selectedTimeframe, isOpenForTrading]);
 
     //IsOpenForTrading
     useEffect(() => {
@@ -321,7 +359,10 @@ export default function StockMarketMain() {
         <StockMarketTimeframeSelector
             timeframe={selectedTimeframe}
             timeframes={data.configuration.timeframes}
-            onClick={(timeframe) => setSelectedTimeframe(timeframe)}
+            onClick={(timeframe) => {
+                setSelectedTimeframe(timeframe);
+                setData((data) => ({ ...data, quoteCandles: undefined }));
+            }}
             onMultiplierClick={(timeframeMultiplier) => setSelectedTimeframeMultiplier(timeframeMultiplier)}
         />
         , [selectedTimeframe, data.configuration]);
