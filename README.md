@@ -24,6 +24,9 @@ Contains global components that can be used across the repository
 **location**
 Contains location specific components
 
+**programming**
+Contains programming specific components
+
 **weather**
 Contains weather specific components
 

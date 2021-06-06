@@ -267,11 +267,17 @@ export default function WeatherMain() {
                     {contributionComponent}
                     <div className='mb-4'></div>
                 </Fragment>
-                : data.isCityLoaded && !selectedCity
+                : data.isConfigurationLoaded && !data.configuration
                     ? <p className={cn(style.error, 'fs-4 fw-bold text-center pt-4')}>
-                        Search for a city across the globe <Emoji symbol='🌎' label='globe' />
+                        Problem loading page configuration
+                        <br />
+                        Try refreshing in a few seconds <Emoji symbol='😐' label='sad' />
                     </p>
-                    : <Loader isRelative={true} height={250} />
+                    : data.isCityLoaded && !selectedCity
+                        ? <p className={cn(style.error, 'fs-4 fw-bold text-center pt-4')}>
+                            Search for a city across the globe <Emoji symbol='🌎' label='globe' />
+                        </p>
+                        : <Loader isRelative={true} height={250} />
             }
         </Fragment>
     )
