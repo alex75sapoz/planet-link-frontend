@@ -16,18 +16,18 @@ export default function StockMarketProfile({
     const data = useMemo(() => {
         if (isLoading) return;
 
-        var successfulCount = profile.alertTypeCounts.find(alertTypeCount => alertTypeCount.alertType.alertTypeId === alertTypeEnum.successful) || {
+        var successfulCount = profile.alertTypeCounts.find(alertTypeCount => alertTypeCount.type.alertTypeId === alertTypeEnum.successful) || {
             count: 0,
             points: 0,
-            alertType: {
+            type: {
                 alertTypeId: alertTypeEnum.successful,
                 name: 'Successful'
             }
         };
-        var unSuccessfulCount = profile.alertTypeCounts.find(alertTypeCount => alertTypeCount.alertType.alertTypeId === alertTypeEnum.unSuccessful) || {
+        var unSuccessfulCount = profile.alertTypeCounts.find(alertTypeCount => alertTypeCount.type.alertTypeId === alertTypeEnum.unSuccessful) || {
             count: 0,
             points: 0,
-            alertType: {
+            type: {
                 alertTypeId: alertTypeEnum.unSuccessful,
                 name: 'Unsuccessful'
             }
@@ -35,7 +35,7 @@ export default function StockMarketProfile({
         var totalCount = {
             count: successfulCount.count + unSuccessfulCount.count,
             points: successfulCount.points + unSuccessfulCount.points,
-            alertType: {
+            type: {
                 alertTypeId: 0,
                 name: 'Total'
             }
@@ -63,7 +63,7 @@ export default function StockMarketProfile({
                         {data.counts.map((alertTypeCount, index) =>
                             <Col key={index}>
                                 <div className={cn(style.container, 'p-2')}>
-                                    <p className={cn(style.alertType, 'fw-bold text-center')}>{alertTypeCount.alertType.name}</p>
+                                    <p className={cn(style.alertType, 'fw-bold text-center')}>{alertTypeCount.type.name}</p>
                                     <div className={cn(style.valueContainer, 'ps-2 pe-2 pt-3 pb-3')}>
                                         <p className={cn(style.title, 'fw-bold text-start')}>Count</p>
                                         <p className={cn(style.value, 'fw-bold text-right')}>{alertTypeCount.count}</p>

@@ -29,10 +29,12 @@ const prepare = {
     quoteUserAlert: (json) => {
         json.createdOn = dayjs(json.createdOn).tz(easternTimezoneId);
         json.completedOn && (json.completedOn = dayjs(json.completedOn).tz(easternTimezoneId));
+        userPrepare.user(json.user);
     },
     /**@param {StockMarketQuoteUserEmotionContract} json */
     quoteUserEmotion: (json) => {
         json.createdOn = dayjs(json.createdOn).tz(easternTimezoneId);
+        userPrepare.user(json.user);
     },
     /**@param {StockMarketUserContract} json */
     profile: (json) => {

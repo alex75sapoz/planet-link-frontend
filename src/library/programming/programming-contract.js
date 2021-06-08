@@ -18,7 +18,7 @@
 
 /**ProgrammingProjectTypeContract
  * @typedef ProgrammingProjectTypeContract
- * @property {number} typeId
+ * @property {number} projectTypeId
  * @property {string} name
 */
 

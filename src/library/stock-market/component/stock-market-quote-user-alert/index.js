@@ -29,8 +29,8 @@ export default function StockMarketQuoteUserAlert({
         createdOnTime: quoteUserAlert.createdOn.format('hh:mm A'),
         completedOnDate: quoteUserAlert.completedOn?.format('MM/DD/YYYY'),
         completedOnTime: quoteUserAlert.completedOn?.format('hh:mm A'),
-        alertType: quoteUserAlert.alertType,
-        isManualCompletionAllowedForUser: user && !user.isGuest && quoteUserAlert.user.userId === user.userId && quoteUserAlert.alertType.alertTypeId === alertTypeEnum.inProgress
+        alertType: quoteUserAlert.type,
+        isManualCompletionAllowedForUser: user && !user.isGuest && quoteUserAlert.user.userId === user.userId && quoteUserAlert.type.alertTypeId === alertTypeEnum.inProgress
     }), [quoteUserAlert, user]);
 
     return (

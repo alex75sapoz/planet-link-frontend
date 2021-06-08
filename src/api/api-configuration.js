@@ -6,7 +6,7 @@ export const guestSession = {
         userId: 0,
         isGuest: true,
         type: {
-            typeId: 0,
+            userTypeId: 0,
             name: 'Guest'
         }
     }

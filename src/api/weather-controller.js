@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 
 import ApiController from './api-controller';
+import { prepare as userPrepare } from './user-controller';
 
 export const prepare = {
     /**@param {WeatherCityObservationContract} json */
@@ -17,7 +18,8 @@ export const prepare = {
     },
     /**@param {WeatherCityUserEmotionContract} json */
     cityUserEmotion: (json) => {
-        json.createdOn = dayjs(json.createdOn)
+        json.createdOn = dayjs(json.createdOn);
+        userPrepare.user(json.user);
     }
 }
 

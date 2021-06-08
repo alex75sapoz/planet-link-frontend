@@ -419,7 +419,7 @@ export default function StockMarketAlert() {
                                             var { data: completedQuoteUserAlert, isSuccess } = await StockMarketController.quote.userAlert.put({ quoteUserAlertId: quoteUserAlert.quoteUserAlertId });
 
                                             if (isSuccess) {
-                                                setSelectedAlertType(completedQuoteUserAlert.alertType);
+                                                setSelectedAlertType(completedQuoteUserAlert.type);
                                                 setSelectedQuote(completedQuoteUserAlert.quote);
                                                 setSelectedUser(data.user);
                                                 setIsUserAlerts(true);
