@@ -197,8 +197,8 @@ export default function StockMarketQuoteChart({
                                         yAxisId='price'
                                         y={Number.parseFloat((data.quoteUserAlert.completedSell || data.quoteUserAlert.sell).toPrecision(4))}
                                         className={cn({
-                                            [style.alertSell]: data.quoteUserAlert.alertType.alertTypeId === alertTypeEnum.successful || data.quoteUserAlert.alertType.alertTypeId === alertTypeEnum.inProgress,
-                                            [style.alertStopLoss]: data.quoteUserAlert.alertType.alertTypeId === alertTypeEnum.unSuccessful
+                                            [style.alertSell]: data.quoteUserAlert.type.alertTypeId === alertTypeEnum.successful || data.quoteUserAlert.type.alertTypeId === alertTypeEnum.inProgress,
+                                            [style.alertStopLoss]: data.quoteUserAlert.type.alertTypeId === alertTypeEnum.unSuccessful
                                         })}
                                     />
                                 }
@@ -246,9 +246,9 @@ export default function StockMarketQuoteChart({
                                             y={candleQuoteUserAlert.buy}
                                             x={candle.index}
                                             className={cn({
-                                                [style.inProgress]: candleQuoteUserAlert.alertType.alertTypeId === alertTypeEnum.inProgress,
-                                                [style.successful]: candleQuoteUserAlert.alertType.alertTypeId === alertTypeEnum.successful,
-                                                [style.unSuccessful]: candleQuoteUserAlert.alertType.alertTypeId === alertTypeEnum.unSuccessful
+                                                [style.inProgress]: candleQuoteUserAlert.type.alertTypeId === alertTypeEnum.inProgress,
+                                                [style.successful]: candleQuoteUserAlert.type.alertTypeId === alertTypeEnum.successful,
+                                                [style.unSuccessful]: candleQuoteUserAlert.type.alertTypeId === alertTypeEnum.unSuccessful
                                             })}
                                             r={candleQuoteUserAlert.quoteUserAlertId === quoteUserAlert?.quoteUserAlertId
                                                 ? 10

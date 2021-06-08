@@ -75,7 +75,7 @@ export default function HomeMain() {
                 projectsResponse
             ] = await Promise.all([
                 ProgrammingController.project.search.get({
-                    projectTypeId: selectedProjectType?.typeId,
+                    projectTypeId: selectedProjectType?.projectTypeId,
                     languageId: selectedLanguage?.languageId,
                     jobId: selectedJob?.jobId,
                     technologyStackId: selectedTechnologyStack?.technologyStackId
@@ -334,10 +334,10 @@ export default function HomeMain() {
                                 <p className={cn(style.filterName, 'fw-bold')}>Project Type</p>
                             </Col>
                             {data.configuration.projectTypes.map((projectType) =>
-                                <Col md={2} key={projectType.typeId}>
+                                <Col md={2} key={projectType.projectTypeId}>
                                     <p
-                                        className={cn(style.filter, { [style.active]: selectedProjectType?.typeId === projectType.typeId }, 'fw-bold')}
-                                        onClick={() => selectedProjectType?.typeId === projectType.typeId
+                                        className={cn(style.filter, { [style.active]: selectedProjectType?.projectTypeId === projectType.projectTypeId }, 'fw-bold')}
+                                        onClick={() => selectedProjectType?.projectTypeId === projectType.projectTypeId
                                             ? setSelectedProjectType(undefined)
                                             : setSelectedProjectType(projectType)
                                         }

@@ -23,7 +23,7 @@ export default class ApiController {
 
         method = method || 'GET';
         parameters = { ...parameters };
-        headers = { [apiHeader.userTypeId]: userSession.user.type.typeId, [apiHeader.token]: userSession.token, [apiHeader.timezoneId]: Intl.DateTimeFormat().resolvedOptions().timeZone, ...headers };
+        headers = { [apiHeader.userTypeId]: userSession.user.type.userTypeId, [apiHeader.token]: userSession.token, [apiHeader.timezoneId]: Intl.DateTimeFormat().resolvedOptions().timeZone, ...headers };
 
         parameters && Object.keys(parameters).forEach(key => (parameters[key] === undefined || parameters[key] === null || (Array.isArray(parameters[key]) && parameters[key].length === 0)) && delete parameters[key]);
         headers && Object.keys(headers).forEach(key => (headers[key] === undefined || headers[key] === null) && delete headers[key]);

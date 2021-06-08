@@ -115,8 +115,8 @@
  * @property {import('dayjs').Dayjs} completedOn
  * @property {StockMarketQuoteContract} quote
  * @property {UserContract} user
- * @property {StockMarketAlertTypeContract} alertType
- * @property {StockMarketAlertCompletedTypeContract} alertCompletedType
+ * @property {StockMarketAlertTypeContract} type
+ * @property {StockMarketAlertCompletedTypeContract} completedType
 */
 
 /**StockMarketQuoteUserEmotionConfigurationContract
@@ -176,7 +176,7 @@
  * @typedef StockMarketUserAlertTypeCountContract
  * @property {number} count
  * @property {number} points
- * @property {StockMarketAlertTypeContract} alertType
+ * @property {StockMarketAlertTypeContract} type
 */
 
 /**StockMarketUserContract

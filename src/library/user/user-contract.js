@@ -16,7 +16,7 @@
 
 /**UserTypeContract
  * @typedef UserTypeContract
- * @property {number} typeId
+ * @property {number} userTypeId
  * @property {string} name
 */
 

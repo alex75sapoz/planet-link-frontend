@@ -18,8 +18,8 @@ export default function User({
     page,
     onAuthenticated
 }) {
-    /**@type {[UserSessionContract, React.Dispatch<React.SetStateAction<UserSessionContract>]} */
     const userSessionTokenCacheKey = cache.userSessionTokenKey(userTypeId);
+    /**@type {[UserSessionContract, React.Dispatch<React.SetStateAction<UserSessionContract>]} */
     const [userSession, setUserSession] = useState(undefined);
     const [isHover, setIsHover] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies([userSessionTokenCacheKey]);
@@ -89,7 +89,7 @@ export default function User({
 
         const load = async () => {
             intervalId = setInterval(async () => {
-                var { data: authenticatedUserSession, isSuccess } = await UserController.authenticate.get({ userTypeId: userSession.user.type.typeId, token: userSession.token }); if (isDisposed) return;
+                var { data: authenticatedUserSession, isSuccess } = await UserController.authenticate.get({ userTypeId: userSession.user.type.userTypeId, token: userSession.token }); if (isDisposed) return;
 
                 if (!isSuccess) {
                     window.location.reload();
@@ -128,7 +128,7 @@ export default function User({
         if (isHover)
             return 'Sign Out';
 
-        switch (userSession.user.type.typeId) {
+        switch (userSession.user.type.userTypeId) {
             case userTypeEnum.google: return userSession.user.google.name;
             case userTypeEnum.stocktwits: return userSession.user.stocktwits.username;
             default: return 'Unknown';
