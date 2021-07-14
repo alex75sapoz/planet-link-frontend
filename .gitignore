@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+development/certificate/certificate.crt
+development/certificate/certificate.key
+development/certificate/certificate.pfx
