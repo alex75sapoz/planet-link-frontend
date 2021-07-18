@@ -35,7 +35,7 @@
 - **Frontend**
     - **Windows**
        1. Open _**Manage Computer Certificates**_ from the start menu
-       2. Expand _**Trusted Root Ceritification Authorities**_
+       2. Expand _**Trusted Root Certification Authorities**_
        3. Right click on _**Certificates**_ and select _**All Tasks -> Import**_
        4. Click next and navigate to _**development/certificates**_
        5. Click on _**certificate.pfx**_
