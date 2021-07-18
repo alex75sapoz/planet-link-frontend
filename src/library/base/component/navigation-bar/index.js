@@ -10,7 +10,7 @@ export default function NavigationBar({
     links
 }) {
     const navigate = useNavigate();
-    
+
     return (
         <Container className='pt-4 pb-5 ps-0 pe-0'>
             <Row className='gx-0'>

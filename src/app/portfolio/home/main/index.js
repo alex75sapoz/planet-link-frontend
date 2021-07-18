@@ -198,10 +198,10 @@ export default function Main() {
                                 I developed many different projects like games, android apps, console apps, and scripts. Each project kept improving my skills, and I always want to do another one.
                                 I like solving problems, learning about solutions, and I mostly enjoy seeing someone use my application.
                                 Don't you love hearing someone say, "That looks cool! Did you do that?"
-                                </p>
+                            </p>
                             <p className={cn(style.bioDescription, 'fs-6 pt-3 fw-bold text-center')}>
                                 If you search "Sapozhnikov meaning" in google, you will discover an interesting fact!
-                                </p>
+                            </p>
                         </Col>
                     </Row>
                 </Container>
@@ -448,7 +448,7 @@ export default function Main() {
                             metadata.projects.container.isError &&
                             <p className={cn(style.error, 'fs-4 fw-bold text-center')}>
                                 Problem loading projects
-                            <br />
+                                <br />
                                 Try refreshing in a few seconds <Emoji symbol='😐' label='sad' />
                             </p>
                         }

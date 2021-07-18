@@ -1,4 +1,4 @@
-@import '../../../base/base-style.scss';
+@import "../../../base/base-style.scss";
 
 .alertContainer {
     border: solid 1px $white-dark;
@@ -105,7 +105,7 @@
     &:hover {
         color: $green-bright;
         background: $page-dark;
-        border: solid 1px $green-bright
+        border: solid 1px $green-bright;
     }
 }
 

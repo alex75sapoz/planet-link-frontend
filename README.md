@@ -33,5 +33,5 @@ Contains weather specific components
 **stock-market**
 Contains stock market specific components
 
-**user**
-Contains user specific components
+**account**
+Contains account specific components

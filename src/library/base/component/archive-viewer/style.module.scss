@@ -1,4 +1,4 @@
-@import '../../../base/base-style.scss';
+@import "../../../base/base-style.scss";
 
 .section {
     color: $white-bright;
@@ -27,7 +27,7 @@
     &:hover {
         color: $white-bright;
         background: $green-normal;
-        border: solid 1px $green-normal
+        border: solid 1px $green-normal;
     }
 }
 

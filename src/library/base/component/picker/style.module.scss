@@ -1,4 +1,4 @@
-@import '../../../base/base-style.scss';
+@import "../../../base/base-style.scss";
 
 .container {
     max-width: 350px;
@@ -34,7 +34,7 @@
 
     &.active {
         border: solid 1px $white-bright;
-        
+
         .input {
             background: $black-dark;
             color: $white-bright;

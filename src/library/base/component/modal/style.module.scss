@@ -1,4 +1,4 @@
-@import '../../../base/base-style.scss';
+@import "../../../base/base-style.scss";
 
 .overlay {
     background: $hover-bright;
@@ -43,10 +43,10 @@
     &:after {
         position: absolute;
         left: 14px;
-        content: ' ';
+        content: " ";
         height: 30px;
         width: 3px;
-        background: $white-bright
+        background: $white-bright;
     }
 
     &:before {
