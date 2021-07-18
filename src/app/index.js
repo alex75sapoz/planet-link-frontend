@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 
-import Loader from '../library/base/base-loader';
+import Loader from '../library/base/component/loader';
 
 export default function App() {
     const Authentication = lazy(() => import('./authentication'));

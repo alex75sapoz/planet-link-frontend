@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Loader from '../../library/base/base-loader';
+import Loader from '../../library/base/component/loader';
 
-export default function Authenticate() {
+export default function Authentication() {
     const Home = lazy(() => import('./home'));
 
     return (
