@@ -1,0 +1,25 @@
+@import "../../../base/base-style.scss";
+
+.name {
+    color: $white-bright;
+}
+
+.description {
+    color: $white-normal;
+}
+
+.createdOn {
+    color: $white-dark;
+}
+
+.extraRow {
+    border-top: dashed 1px $white-dark;
+}
+
+.extraName {
+    color: $cyan-normal;
+}
+
+.extraValue {
+    color: $white-normal;
+}

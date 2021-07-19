@@ -57,7 +57,7 @@
  * @property {number} cityUserEmotionId
  * @property {import('dayjs').Dayjs} createdOn
  * @property {LocationCityContract} city
- * @property {UserContract} user
+ * @property {AccountUserContract} user
  * @property {WeatherEmotionContract} emotion
 */
 

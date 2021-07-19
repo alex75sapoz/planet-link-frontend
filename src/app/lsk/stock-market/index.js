@@ -1,12 +1,12 @@
 import { Fragment, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import NavigationBar from '../../../library/base/base-navigation-bar';
+import NavigationBar from '../../../library/base/component/navigation-bar';
 
 export default function Weather() {
-    const Main = lazy(() => import('./stock-market-main'));
-    const Alert = lazy(() => import('./stock-market-alert'));
-    const AlertCreate = lazy(() => import('./stock-market-alert-create'));
+    const Main = lazy(() => import('./main'));
+    const Alert = lazy(() => import('./alert'));
+    const AlertCreate = lazy(() => import('./alert-create'));
 
     return (
         <Fragment>

@@ -1,11 +1,11 @@
 import { Fragment, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import NavigationBar from '../../../library/base/base-navigation-bar';
+import NavigationBar from '../../../library/base/component/navigation-bar';
 
 export default function Weather() {
-    const Main = lazy(() => import('./weather-main'));
-    const Archive = lazy(() => import('./weather-archive'));
+    const Main = lazy(() => import('./main'));
+    const Archive = lazy(() => import('./archive'));
 
     return (
         <Fragment>

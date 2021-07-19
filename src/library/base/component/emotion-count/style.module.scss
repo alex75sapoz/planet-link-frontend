@@ -1,0 +1,49 @@
+@import "../../../base/base-style.scss";
+
+.container {
+    border: solid 1px $white-dark;
+}
+
+.emotionContainer {
+    cursor: pointer;
+    border: solid 1px transparent;
+
+    &.disabled {
+        cursor: default !important;
+    }
+
+    &:not(.disabled):hover {
+        border: solid 1px $white-bright;
+        background: $page-dark;
+    }
+
+    &.active {
+        border: solid 1px $cyan-normal;
+        background: $page-dark;
+    }
+}
+
+.title {
+    color: $white-normal;
+}
+
+.type {
+    color: $white-bright;
+}
+
+.group {
+    color: $white-bright;
+}
+
+.global {
+    color: $white-dark;
+}
+
+.dailyLimit {
+    color: $white-dark;
+}
+
+.emotionOverlay {
+    width: fit-content;
+    margin: auto;
+}

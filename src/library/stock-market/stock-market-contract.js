@@ -114,9 +114,9 @@
  * @property {number} completedSellPoints
  * @property {import('dayjs').Dayjs} completedOn
  * @property {StockMarketQuoteContract} quote
- * @property {UserContract} user
- * @property {StockMarketAlertTypeContract} type
- * @property {StockMarketAlertCompletedTypeContract} completedType
+ * @property {AccountUserContract} user
+ * @property {StockMarketAlertTypeContract} alertType
+ * @property {StockMarketAlertCompletedTypeContract} alertCompletedType
 */
 
 /**StockMarketQuoteUserEmotionConfigurationContract
@@ -152,7 +152,7 @@
  * @property {number} quoteUserEmotionId
  * @property {import('dayjs').Dayjs} createdOn
  * @property {StockMarketQuoteContract} quote
- * @property {UserContract} user
+ * @property {AccountUserContract} user
  * @property {StockMarketEmotionContract} emotion
 */
 
@@ -176,11 +176,11 @@
  * @typedef StockMarketUserAlertTypeCountContract
  * @property {number} count
  * @property {number} points
- * @property {StockMarketAlertTypeContract} type
+ * @property {StockMarketAlertTypeContract} alertType
 */
 
 /**StockMarketUserContract
  * @typedef StockMarketUserContract
  * @property {StockMarketUserAlertTypeCountContract[]} alertTypeCounts
- * @property {UserContract} user
+ * @property {AccountUserContract} user
 */

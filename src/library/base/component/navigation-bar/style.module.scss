@@ -1,0 +1,16 @@
+@import "../../../base/base-style.scss";
+
+.link {
+    cursor: pointer;
+    color: $white-normal;
+
+    &:hover {
+        color: $white-bright;
+    }
+}
+
+.separator {
+    width: 1px;
+    padding: 0px;
+    background: $white-bright;
+}

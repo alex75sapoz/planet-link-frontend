@@ -29,7 +29,7 @@
  * @property {string} description
  * @property {boolean} isImportant
  * @property {import('dayjs').Dayjs} createdOn
- * @property {ProgrammingProjectTypeContract} type
+ * @property {ProgrammingProjectTypeContract} projectType
  * @property {ProgrammingJobContract} job
  * @property {ProgrammingTechnologyStackContract} technologyStack
  * @property {ProgrammingLanguageContract[]} languages

@@ -1,0 +1,80 @@
+@import "../../../../library/base/base-style.scss";
+
+.error {
+    color: $white-bright;
+}
+
+.container {
+    border: solid 1px $white-dark;
+    max-width: 800px;
+}
+
+.sliderSell {
+    & > :global(.rc-slider-rail) {
+        background-color: $green-dark;
+    }
+
+    & > :global(.rc-slider-track) {
+        background-color: $green-bright;
+    }
+
+    & > :global(.rc-slider-handle) {
+        background-color: $green-bright;
+        border: 0;
+        width: 5px;
+        border-radius: 0;
+    }
+}
+
+.sliderStopLoss {
+    & > :global(.rc-slider-rail) {
+        background-color: $red-dark;
+    }
+
+    & > :global(.rc-slider-track) {
+        background-color: $red-bright;
+    }
+
+    & > :global(.rc-slider-handle) {
+        background-color: $red-bright;
+        border: 0;
+        width: 5px;
+        border-radius: 0;
+    }
+}
+
+.sellValue {
+    color: $green-bright;
+}
+
+.sellPoints {
+    color: $green-bright;
+}
+
+.stopLossValue {
+    color: $red-bright;
+}
+
+.stopLossPoints {
+    color: $red-bright;
+}
+
+.current {
+    color: $cyan-bright;
+}
+
+.sliderText {
+    color: $white-bright;
+}
+
+.submit {
+    color: $green-dark;
+    border: solid 1px $green-dark;
+    cursor: pointer;
+    max-width: 300px;
+
+    &:hover {
+        color: $green-bright;
+        border: solid 1px $green-bright;
+    }
+}

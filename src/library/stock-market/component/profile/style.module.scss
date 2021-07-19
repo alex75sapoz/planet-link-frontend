@@ -1,0 +1,35 @@
+@import "../../../base/base-style.scss";
+
+.container {
+    border: solid 1px $white-dark;
+}
+
+.profile {
+    color: $white-bright;
+}
+
+.alertType {
+    color: $white-bright;
+}
+
+.valueContainer {
+    border-bottom: dashed 1px $white-dark;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    color: $white-normal;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1;
+}
+
+.value {
+    color: $cyan-normal;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1;
+}

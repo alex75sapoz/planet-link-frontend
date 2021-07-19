@@ -1,0 +1,44 @@
+@import "../../../base/base-style.scss";
+
+.container {
+    border: solid 1px $white-dark;
+}
+
+.valueContainer {
+    border-bottom: dashed 1px $white-dark;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .noBorderOnMobile {
+        border-bottom: none;
+    }
+}
+
+.title {
+    color: $white-normal;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1;
+}
+
+.value {
+    color: $cyan-normal;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1;
+}
+
+.link {
+    transition: 0.25s ease;
+    cursor: pointer;
+    text-decoration: none !important;
+    color: inherit;
+
+    &:hover {
+        color: $cyan-bright;
+    }
+}

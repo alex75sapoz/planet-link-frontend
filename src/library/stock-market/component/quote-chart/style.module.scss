@@ -1,0 +1,104 @@
+@import "../../../base/base-style.scss";
+
+.container {
+    border: solid 1px $white-dark;
+}
+
+.chartContainer {
+    height: 300px;
+
+    &.isLoading {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+.inProgress {
+    cursor: pointer;
+    & > circle {
+        fill: $white-bright;
+        stroke: none;
+        filter: $filter-shadow-small;
+        animation: bubble 0.5s ease alternate infinite;
+
+        &:hover {
+            animation: none;
+        }
+    }
+}
+
+.successful {
+    cursor: pointer;
+    & > circle {
+        fill: $green-bright;
+        stroke: none;
+        filter: $filter-shadow-small;
+        animation: bubble 0.5s ease alternate infinite;
+
+        &:hover {
+            animation: none;
+        }
+    }
+}
+
+.unSuccessful {
+    cursor: pointer;
+    & > circle {
+        fill: $red-bright;
+        stroke: none;
+        filter: $filter-shadow-small;
+        animation: bubble 0.5s ease alternate infinite;
+
+        &:hover {
+            animation: none;
+        }
+    }
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.tooltip {
+    background: $page-normal !important;
+    opacity: 0.75;
+
+    & > ul {
+        & > li {
+            color: $white-bright !important;
+        }
+    }
+}
+
+.tooltipLabel {
+    color: $white-bright;
+}
+
+.alertSell {
+    & > line {
+        stroke: $green-bright;
+        stroke-dasharray: 5;
+    }
+}
+
+.alertStopLoss {
+    & > line {
+        stroke: $red-bright;
+        stroke-dasharray: 5;
+    }
+}
+
+.error {
+    color: $white-bright;
+}

@@ -3,7 +3,7 @@ import timezonePlugin from 'dayjs/plugin/timezone';
 import dayjs from 'dayjs'
 
 import ApiController from './api-controller';
-import { prepare as userPrepare } from './user-controller';
+import { prepare as accountPrepare } from './account-controller';
 
 import { easternTimezoneId } from '../library/base/base-extension';
 
@@ -29,16 +29,16 @@ const prepare = {
     quoteUserAlert: (json) => {
         json.createdOn = dayjs(json.createdOn).tz(easternTimezoneId);
         json.completedOn && (json.completedOn = dayjs(json.completedOn).tz(easternTimezoneId));
-        userPrepare.user(json.user);
+        accountPrepare.user(json.user);
     },
     /**@param {StockMarketQuoteUserEmotionContract} json */
     quoteUserEmotion: (json) => {
         json.createdOn = dayjs(json.createdOn).tz(easternTimezoneId);
-        userPrepare.user(json.user);
+        accountPrepare.user(json.user);
     },
     /**@param {StockMarketUserContract} json */
     profile: (json) => {
-        userPrepare.user(json.user);
+        accountPrepare.user(json.user);
     }
 }
 

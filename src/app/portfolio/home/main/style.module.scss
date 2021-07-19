@@ -1,0 +1,345 @@
+@import "../../../../library/base/base-style.scss";
+
+.name {
+    color: $cyan-normal;
+}
+
+.filterName {
+    background: $page-dark;
+    color: $white-dark;
+    height: 50px;
+    text-align: center;
+    height: 50px;
+    padding: 5px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter {
+    border: solid 1px $white-dark;
+    color: $white-normal;
+    text-align: center;
+    cursor: pointer;
+    height: 50px;
+    padding: 5px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        border-color: $white-bright;
+        color: $white-bright;
+    }
+
+    &.active {
+        background: $white-bright;
+        color: $page-dark;
+        border-color: $white-bright;
+    }
+}
+
+@media (max-width: 1199px) {
+    .projectTile {
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .mobileFilter {
+        display: none !important;
+    }
+
+    .filter {
+        font-size: 0.85rem;
+    }
+
+    .projectTile {
+        font-size: 0.75rem !important;
+        padding-top: 15px !important;
+    }
+
+    .projectTileYear {
+        font-size: 0.5rem !important;
+        padding-top: 3px !important;
+        padding-left: 5px !important;
+    }
+
+    .projectTileStar {
+        padding-top: 5px !important;
+        padding-right: 4px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .projectTile {
+        font-size: 0.6rem !important;
+    }
+}
+
+.filterFrontend {
+    border-color: $orange-dark;
+    color: $orange-normal;
+
+    &:hover {
+        color: $orange-bright;
+        border-color: $orange-bright;
+    }
+
+    &.active {
+        color: $orange-bright;
+        border-color: $orange-bright;
+        background: $hover-bright;
+    }
+}
+
+.filterBackend {
+    border-color: $cyan-dark;
+    color: $cyan-normal;
+
+    &:hover {
+        color: $cyan-bright;
+        border-color: $cyan-bright;
+    }
+
+    &.active {
+        color: $cyan-bright;
+        border-color: $cyan-bright;
+        background: $hover-bright;
+    }
+}
+
+.filterFull {
+    border-color: $green-dark;
+    color: $green-normal;
+
+    &:hover {
+        color: $green-bright;
+        border-color: $green-bright;
+    }
+
+    &.active {
+        color: $green-bright;
+        border-color: $green-bright;
+        background: $hover-bright;
+    }
+}
+
+.projectContainer {
+    border-top: dashed 1px $white-dark;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $white-dark;
+
+        &:hover {
+            background: $white-normal;
+        }
+    }
+}
+
+.projectTile {
+    border: solid 1px $white-normal;
+    position: relative;
+    color: $white-bright;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    padding-top: 10px;
+    font-size: 0.85rem;
+    height: 50px;
+    margin: auto;
+    cursor: pointer;
+    background: $hover-normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.projectTileYear {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.6rem;
+    padding-top: 3px;
+    padding-left: 10px;
+}
+
+.projectTileStar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.55rem;
+    padding-top: 7px;
+    padding-right: 8px;
+    color: $yellow-bright !important;
+}
+
+.projectFrontend {
+    border-color: $orange-dark;
+    color: $orange-normal;
+
+    &:hover {
+        color: $orange-bright;
+        border-color: $orange-bright;
+        background: $hover-bright;
+    }
+}
+
+.projectBackend {
+    border-color: $cyan-dark;
+    color: $cyan-normal;
+
+    &:hover {
+        color: $cyan-bright;
+        border-color: $cyan-bright;
+        background: $hover-bright;
+    }
+}
+
+.projectFull {
+    border-color: $green-dark;
+    color: $green-normal;
+
+    &:hover {
+        color: $green-bright;
+        border-color: $green-bright;
+        background: $hover-bright;
+    }
+}
+
+.arrow {
+    color: $white-normal;
+    font-size: 2.2rem;
+    cursor: pointer;
+
+    &:hover {
+        color: $white-bright;
+    }
+}
+
+.pageTitle {
+    color: $cyan-normal;
+}
+
+.container {
+    border: solid 1px $white-dark;
+}
+
+.bioContainer {
+    border-top: dashed 1px $white-dark;
+}
+
+.bioDescription {
+    color: $white-normal;
+}
+
+.bioTitle {
+    color: $white-bright;
+}
+
+.bioName {
+    color: $cyan-normal;
+}
+
+.bioValue {
+    color: $white-normal;
+}
+
+.personalSite {
+    font-size: 0.7rem !important;
+    padding: 0px !important;
+}
+
+.imageContainer {
+    text-align: center;
+    & > img {
+        filter: $filter-shadow-medium;
+    }
+
+    & > p {
+        font-size: 1.3rem;
+        padding-top: 5px;
+        font-weight: 700;
+        color: $white-dark;
+    }
+}
+
+.imageHover {
+    cursor: pointer;
+    opacity: 0.85;
+    text-decoration: none !important;
+
+    & > img {
+        width: 100px;
+        filter: contrast(0);
+    }
+
+    &:hover {
+        opacity: 1;
+
+        & > img {
+            filter: contrast(0) brightness(2) !important;
+        }
+
+        & > p {
+            color: $white-bright;
+        }
+    }
+}
+
+@media (max-width: 330px) {
+    .imageHover {
+        & > img {
+            width: 60px !important;
+            height: 50px !important;
+        }
+    }
+}
+
+.resumeContainer {
+    text-decoration: none !important;
+}
+
+.resume {
+    cursor: pointer;
+    border: solid 1px $white-dark;
+    color: $white-dark;
+    width: fit-content;
+
+    &:hover {
+        border: solid 1px $white-bright;
+        color: $page-dark;
+        background: $white-bright;
+    }
+}
+
+@media (max-width: 767px) {
+    .imageContainer {
+        & > img {
+            height: 30px !important;
+        }
+
+        & > p {
+            font-size: 1rem;
+        }
+    }
+}
+
+.endingText {
+    color: $white-bright;
+}
+
+.error {
+    color: $white-normal;
+}
