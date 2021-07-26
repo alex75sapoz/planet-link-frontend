@@ -131,6 +131,7 @@ export default function User({
         switch (userSession.user.userType.userTypeId) {
             case userTypeEnum.google: return userSession.user.google.name;
             case userTypeEnum.stocktwits: return userSession.user.stocktwits.username;
+            case userTypeEnum.fitbit: return userSession.user.fitbit.shortName;
             default: return 'Unknown';
         }
     };
