@@ -4,7 +4,6 @@ import cn from 'classnames';
 
 import { page as weatherPage } from '../../weather/main/configuration';
 import { page as stockMarketPage } from '../../stock-market/main/configuration';
-import { page as fitnessPage } from '../../fitness/main/configuration';
 
 import style from './style.module.scss';
 
@@ -24,9 +23,6 @@ export default function Main() {
                 </Col>
                 <Col>
                     <p onClick={() => navigate(`/${stockMarketPage}`)} className={cn(style.page, 'fs-5 fw-bold text-center p-3')}>Quotes</p>
-                </Col>
-                <Col>
-                    <p onClick={() => navigate(`/${fitnessPage}`)} className={cn(style.page, 'fs-5 fw-bold text-center p-3')}>Fitness</p>
                 </Col>
             </Row>
             <Row className='pt-5'>
