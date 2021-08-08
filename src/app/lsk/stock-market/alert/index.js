@@ -15,8 +15,8 @@ import Loader from '../../../../library/base/component/loader';
 import StockMarketProfile from '../../../../library/stock-market/component/profile';
 import StockMarketQuotePicker from '../../../../library/stock-market/component/quote-picker';
 import StockMarketQuoteUserAlert from '../../../../library/stock-market/component/quote-user-alert';
-import User from '../../../../library/account/component/user';
-import UserStocktwitsPicker from '../../../../library/account/component/user-stocktwits-picker';
+import AccountUser from '../../../../library/account/component/user';
+import AccountUserStocktwitsPicker from '../../../../library/account/component/user-stocktwits-picker';
 
 import style from './style.module.scss';
 
@@ -163,7 +163,7 @@ export default function Alert() {
     }, [selectedUser, data.configuration]);
 
     const userComponent = useMemo(() =>
-        <User
+        <AccountUser
             userTypeId={userTypeEnum.stocktwits}
             page={page}
             onAuthenticated={(user) => {
@@ -191,7 +191,7 @@ export default function Alert() {
         , [selectedQuote]);
 
     const userStocktwitsPickerComponent = useMemo(() =>
-        <UserStocktwitsPicker
+        <AccountUserStocktwitsPicker
             value={selectedUser?.username}
             isResetAllowed={true}
             onClick={(user) => setSelectedUser(user)}

@@ -14,7 +14,7 @@ import { userTypeEnum } from '../../../../library/account/account-enum';
 import Loader from '../../../../library/base/component/loader';
 import EmotionCount from '../../../../library/base/component/emotion-count';
 import LocationCityPicker from '../../../../library/location/component/city-picker';
-import User from '../../../../library/account/component/user';
+import AccountUser from '../../../../library/account/component/user';
 import WeatherCityObservation from '../../../../library/weather/component/city-observation';
 import WeatherCityForecast from '../../../../library/weather/component/city-forecast';
 import WeatherContribution from '../../../../library/weather/component/contribution';
@@ -160,7 +160,7 @@ export default function Main() {
     }, [selectedCity, data.configuration, data.user]);
 
     const userComponent = useMemo(() =>
-        <User
+        <AccountUser
             userTypeId={userTypeEnum.google}
             page={page}
             onAuthenticated={(user) => setData((data) => ({ ...data, user, isUserLoaded: true }))}

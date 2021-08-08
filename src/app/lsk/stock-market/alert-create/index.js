@@ -16,7 +16,7 @@ import { alertTypeEnum, exchangeEnum } from '../../../../library/stock-market/st
 import Loader from '../../../../library/base/component/loader';
 import StockMarketQuotePicker from '../../../../library/stock-market/component/quote-picker';
 import StockMarketUserRequirement from '../../../../library/stock-market/component/user-requirement';
-import User from '../../../../library/account/component/user';
+import AccountUser from '../../../../library/account/component/user';
 
 import 'rc-slider/assets/index.css';
 import style from './style.module.scss';
@@ -218,7 +218,7 @@ export default function AlertCreate() {
     }, [selectedQuote, data.global]);
 
     const userComponent = useMemo(() =>
-        <User
+        <AccountUser
             userTypeId={userTypeEnum.stocktwits}
             onAuthenticated={(user) => setData((data) => ({ ...data, user }))}
         />

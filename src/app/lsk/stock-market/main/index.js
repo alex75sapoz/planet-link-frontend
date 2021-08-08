@@ -20,7 +20,7 @@ import StockMarketQuoteCompany from '../../../../library/stock-market/component/
 import StockMarketQuotePicker from '../../../../library/stock-market/component/quote-picker';
 import StockMarketQuoteChart from '../../../../library/stock-market/component/quote-chart';
 import StockMarketQuoteUserAlert from '../../../../library/stock-market/component/quote-user-alert';
-import User from '../../../../library/account/component/user';
+import AccountUser from '../../../../library/account/component/user';
 
 import style from './style.module.scss';
 
@@ -266,7 +266,7 @@ export default function Main() {
     }, [selectedQuote, data.global]);
 
     const userComponent = useMemo(() =>
-        <User
+        <AccountUser
             userTypeId={userTypeEnum.stocktwits}
             page={page}
             onAuthenticated={(user) => setData((data) => ({ ...data, user, isUserLoaded: true }))}
