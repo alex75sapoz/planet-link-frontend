@@ -16,7 +16,7 @@ import StockMarketProfile from '../../../../library/stock-market/component/profi
 import StockMarketQuotePicker from '../../../../library/stock-market/component/quote-picker';
 import StockMarketQuoteUserAlert from '../../../../library/stock-market/component/quote-user-alert';
 import AccountUser from '../../../../library/account/component/user';
-import UserStocktwitsPicker from '../../../../library/account/component/user-stocktwits-picker';
+import AccountUserStocktwitsPicker from '../../../../library/account/component/user-stocktwits-picker';
 
 import style from './style.module.scss';
 
@@ -191,7 +191,7 @@ export default function Alert() {
         , [selectedQuote]);
 
     const userStocktwitsPickerComponent = useMemo(() =>
-        <UserStocktwitsPicker
+        <AccountUserStocktwitsPicker
             value={selectedUser?.username}
             isResetAllowed={true}
             onClick={(user) => setSelectedUser(user)}

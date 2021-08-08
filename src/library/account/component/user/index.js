@@ -12,7 +12,7 @@ import { userTypeEnum } from '../../account-enum';
 
 import style from './style.module.scss';
 
-/**User@param {Props}*/
+/**@param {Props}*/
 export default function User({
     userTypeId,
     page,
